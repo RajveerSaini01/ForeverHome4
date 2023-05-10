@@ -20,14 +20,14 @@ public class LevelGeneration : MonoBehaviour
     public GameObject centerPrefab;
     public GameObject waterPrefab;
     public GameObject waterSpecularPrefab;
+    public GameObject wall;
     public int waterHeight;
     
     [Header("Prefab List")] 
     public Prefab[] staticPrefabs;
     public Prefab[] psychoPrefabs;
     public Prefab[] dynamicPrefabs;
-    
-    
+
     [Header("Texture Properties")]
     public int tileResolution;
     public Texture2D texture1, texture2;
@@ -74,9 +74,9 @@ public class LevelGeneration : MonoBehaviour
         rawMapWidth = Random.Range(2, 7);
         rawMapDepth = Random.Range(2, 7);
         
-        if (borderThickness < 2)
+        if (borderThickness < 3)
         {
-            borderThickness = 2;
+            borderThickness = 3;
         }
         mapWidth = rawMapWidth + borderThickness * 2;
         mapDepth = rawMapDepth + borderThickness * 2;
@@ -134,6 +134,24 @@ public class LevelGeneration : MonoBehaviour
         
         yield return 0; // Raycast collision doesnt work until after the mesh generation frame
         
+        // Create Player bounds (by scaling a cube)
+        GameObject north, south, east, west;
+        north = Instantiate(wall, new Vector3((mapWidth-1)*tileWidth/2f, 0, (mapDepth-1)*tileDepth), Quaternion.identity);
+        north.transform.localScale = new (mapWidth*tileWidth-tileWidth,2*levelScale+levelScale,1);
+        north.gameObject.name = "North Wall";
+        
+        south = Instantiate(wall, new Vector3((mapWidth-1)*tileWidth/2f, 0, 0), Quaternion.identity);
+        south.transform.localScale = new (mapWidth*tileWidth-tileWidth,2*levelScale+levelScale,1);
+        south.gameObject.name = "South Wall";
+        
+        east = Instantiate(wall, new Vector3((mapWidth-1)*tileWidth, 0, (mapDepth-1)*tileDepth/2f), Quaternion.identity);
+        east.transform.localScale = new (1,2*levelScale+levelScale,mapDepth*tileDepth-tileDepth);
+        east.gameObject.name = "East Wall";
+        
+        west = Instantiate(wall, new Vector3(0, 0, (mapDepth-1)*tileDepth/2f), Quaternion.identity);
+        west.transform.localScale = new (1,2*levelScale+levelScale,mapDepth*tileDepth-tileDepth);
+        west.gameObject.name = "West Wall";
+
         // Instantiate Player object and water planes
         Vector2 centerPos = new(mapWidth * tileWidth / 2f - (tileWidth / 2f) , mapDepth * tileDepth / 2f - (tileDepth / 2f));
         InstantiateObjectInMap(playerPrefab, centerPos.x, centerPos.y);
