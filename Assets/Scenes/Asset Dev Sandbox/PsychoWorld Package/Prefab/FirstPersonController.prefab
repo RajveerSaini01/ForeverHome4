@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1106721195805917976}
   - component: {fileID: 8299861879044020810}
   - component: {fileID: 1445065137796261217}
+  - component: {fileID: 6899378822027493613}
   - component: {fileID: 4083502587256849695}
   m_Layer: 6
   m_Name: FirstPersonController
@@ -116,6 +117,23 @@ MonoBehaviour:
   crouchBobAmount: 0.025
   timeToZoom: 0.3
   zoomFOV: 30
+--- !u!114 &6899378822027493613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65818409005827109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7a997c883055ea47a759b84850e7ce7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionRadius: 1
+  detectionTime: 1
+  cooldownTime: 3
+  health: 100
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &4083502587256849695
 MonoBehaviour:
   m_ObjectHideFlags: 0
