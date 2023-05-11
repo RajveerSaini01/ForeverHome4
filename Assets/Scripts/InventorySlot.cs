@@ -66,6 +66,19 @@ public class InventorySlot : MonoBehaviour
                         quantity.text = inventoryItem.quantity.ToString();
                     }
             }
+
+            if (inventoryItem.item.isWeapon)
+            {
+                // Equip the weapon
+                var player = GameObject.FindGameObjectWithTag("Player");
+                var playerController = player.GetComponent<FirstPersonController>();
+                playerController.EquipWeapon(inventoryItem.item.itemDropPrefab);
+            }
+            else
+            {
+                // Otherwise, use the item as normal
+                inventoryItem.item.Use();
+            }
            
         }
     }

@@ -58,7 +58,8 @@ public class FirstPersonController : MonoBehaviour
     [Header("Inventory Parameters")]
      
 
-     public GameObject Hand;
+     public Transform Hand;
+     
      
 
     [Header("Movement Parameters")] 
@@ -510,6 +511,28 @@ public class FirstPersonController : MonoBehaviour
         }
         
         OnHeal?.Invoke(currentHealth);
+    }
+
+    public void EquipWeapon(GameObject weaponPrefab)
+    {
+        if (weaponPrefab == null)
+        {
+            Debug.LogError("No weapon prefab provided.");
+            return;
+        }
+
+        // Instantiate the weapon object
+        GameObject weaponInstance = Instantiate(weaponPrefab, Hand.position, Hand.rotation);
+
+        // Set the weapon's parent to the weapon holder
+        weaponInstance.transform.SetParent(Hand);
+
+        Rigidbody rb = weaponInstance.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.isKinematic = true;
+        }
+       
     }
 
    

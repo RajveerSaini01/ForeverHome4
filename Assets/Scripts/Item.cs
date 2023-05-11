@@ -11,6 +11,7 @@ public class Item : ScriptableObject
     public bool isStackable;
     public bool isDestroyable;
     public bool isPainkiller;
+    public bool isWeapon;
     public int healthIncrease = 20;
 
     public virtual void Use()

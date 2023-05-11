@@ -17,3 +17,7 @@ MonoBehaviour:
   isDefaultItem: 0
   itemDropPrefab: {fileID: 2414091663673095672, guid: 1706238a01d98b74dbe989b4c436ef12, type: 3}
   isStackable: 0
+  isDestroyable: 0
+  isPainkiller: 0
+  isWeapon: 1
+  healthIncrease: 0
