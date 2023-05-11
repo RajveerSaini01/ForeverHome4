@@ -47,11 +47,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -90,6 +91,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
@@ -357,16 +359,15 @@ TextureImporter:
     nameFileIdTable:
       Steampunk_UI_Alternative_Colors_3_0: -1296462821805125758
       Steampunk_UI_Alternative_Colors_3_1: 3802430405387719474
-      Steampunk_UI_Alternative_Colors_3_4: -5695212118415140605
-      Steampunk_UI_Alternative_Colors_3_3: 1445282120219910108
-      Steampunk_UI_Alternative_Colors_3_8: -1956750064360261586
-      Steampunk_UI_Alternative_Colors_3_7: 2640572241366627063
       Steampunk_UI_Alternative_Colors_3_2: -3566595149302162515
-      Steampunk_UI_Alternative_Colors_3_6: 1596259862739049483
+      Steampunk_UI_Alternative_Colors_3_3: 1445282120219910108
+      Steampunk_UI_Alternative_Colors_3_4: -5695212118415140605
       Steampunk_UI_Alternative_Colors_3_5: -3921529898341959604
-  spritePackingTag: 
+      Steampunk_UI_Alternative_Colors_3_6: 1596259862739049483
+      Steampunk_UI_Alternative_Colors_3_7: 2640572241366627063
+      Steampunk_UI_Alternative_Colors_3_8: -1956750064360261586
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -77,11 +77,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -120,6 +121,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
@@ -595,28 +597,27 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Steampunk_UI_Slots_Arrows_14: -6616226697546386110
-      Steampunk_UI_Slots_Arrows_11: -5176837104644756421
-      Steampunk_UI_Slots_Arrows_13: -8097435913722164118
-      Steampunk_UI_Slots_Arrows_7: 7402602512509295302
-      Steampunk_UI_Slots_Arrows_1: 6663573335021605044
       Steampunk_UI_Slots_Arrows_0: 3294153589612204990
+      Steampunk_UI_Slots_Arrows_1: 6663573335021605044
+      Steampunk_UI_Slots_Arrows_10: 1902459358462966696
+      Steampunk_UI_Slots_Arrows_11: -5176837104644756421
+      Steampunk_UI_Slots_Arrows_12: -9022961981736316390
+      Steampunk_UI_Slots_Arrows_13: -8097435913722164118
+      Steampunk_UI_Slots_Arrows_14: -6616226697546386110
+      Steampunk_UI_Slots_Arrows_15: 4097922944388417251
+      Steampunk_UI_Slots_Arrows_16: 9069159120733657743
+      Steampunk_UI_Slots_Arrows_17: -6880685851343801404
       Steampunk_UI_Slots_Arrows_18: -8316078788950429067
+      Steampunk_UI_Slots_Arrows_2: 1462669244351901227
+      Steampunk_UI_Slots_Arrows_3: -6405063604575625559
       Steampunk_UI_Slots_Arrows_4: 5638420824538889001
       Steampunk_UI_Slots_Arrows_5: -1767034246873198570
       Steampunk_UI_Slots_Arrows_6: 803736849360072603
-      Steampunk_UI_Slots_Arrows_15: 4097922944388417251
-      Steampunk_UI_Slots_Arrows_2: 1462669244351901227
-      Steampunk_UI_Slots_Arrows_10: 1902459358462966696
+      Steampunk_UI_Slots_Arrows_7: 7402602512509295302
       Steampunk_UI_Slots_Arrows_8: -4972393294115483615
-      Steampunk_UI_Slots_Arrows_3: -6405063604575625559
-      Steampunk_UI_Slots_Arrows_17: -6880685851343801404
       Steampunk_UI_Slots_Arrows_9: 4508516164457878799
-      Steampunk_UI_Slots_Arrows_12: -9022961981736316390
-      Steampunk_UI_Slots_Arrows_16: 9069159120733657743
-  spritePackingTag: 
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

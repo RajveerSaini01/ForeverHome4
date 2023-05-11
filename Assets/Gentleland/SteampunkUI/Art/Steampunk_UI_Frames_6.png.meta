@@ -38,11 +38,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -81,6 +82,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
@@ -285,13 +287,12 @@ TextureImporter:
     nameFileIdTable:
       Steampunk_UI_Frames_6_0: -4432957505949057966
       Steampunk_UI_Frames_6_1: -7713465263522439039
-      Steampunk_UI_Frames_6_5: -2609340509387091587
-      Steampunk_UI_Frames_6_6: 3017534586856611628
       Steampunk_UI_Frames_6_2: 7500304466860545804
       Steampunk_UI_Frames_6_3: 340592532020888549
-  spritePackingTag: 
+      Steampunk_UI_Frames_6_5: -2609340509387091587
+      Steampunk_UI_Frames_6_6: 3017534586856611628
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -71,11 +71,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -114,6 +115,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
@@ -547,26 +549,25 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Steampunk_UI_HP_Bars_16: -3987777257890276305
-      Steampunk_UI_HP_Bars_3: -4543725098022974809
-      Steampunk_UI_HP_Bars_5: 6384525928684987386
-      Steampunk_UI_HP_Bars_11: 1493230970921902157
-      Steampunk_UI_HP_Bars_10: -5467746469778459622
-      Steampunk_UI_HP_Bars_2: -8562403017610490672
-      Steampunk_UI_HP_Bars_15: -9080807595922185961
-      Steampunk_UI_HP_Bars_4: 811450275692543589
-      Steampunk_UI_HP_Bars_9: -3244063273821485595
       Steampunk_UI_HP_Bars_0: -4435171574924648828
-      Steampunk_UI_HP_Bars_6: -8362258263938538887
       Steampunk_UI_HP_Bars_1: -8038419202229254384
+      Steampunk_UI_HP_Bars_10: -5467746469778459622
+      Steampunk_UI_HP_Bars_11: 1493230970921902157
       Steampunk_UI_HP_Bars_12: -1501116369539037563
       Steampunk_UI_HP_Bars_13: -5672574732366779016
       Steampunk_UI_HP_Bars_14: 7518163173404267975
-      Steampunk_UI_HP_Bars_8: -9036669614824182120
+      Steampunk_UI_HP_Bars_15: -9080807595922185961
+      Steampunk_UI_HP_Bars_16: -3987777257890276305
+      Steampunk_UI_HP_Bars_2: -8562403017610490672
+      Steampunk_UI_HP_Bars_3: -4543725098022974809
+      Steampunk_UI_HP_Bars_4: 811450275692543589
+      Steampunk_UI_HP_Bars_5: 6384525928684987386
+      Steampunk_UI_HP_Bars_6: -8362258263938538887
       Steampunk_UI_HP_Bars_7: -8871619828572829403
-  spritePackingTag: 
+      Steampunk_UI_HP_Bars_8: -9036669614824182120
+      Steampunk_UI_HP_Bars_9: -3244063273821485595
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -143,11 +143,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -186,6 +187,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
@@ -1123,50 +1125,49 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_6: -1493191071480523210
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_13: -3420069868775723228
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_24: 5850339639688258312
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_27: -880674876031457209
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_12: -4419781093917103727
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_29: -2679631264932870170
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_18: -5291777911465187339
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_39: -5096845853063368743
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_30: -35330246918993485
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_31: 3778235013355795352
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_3: -2082955441078430534
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_0: -6826831186250956815
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_1: 2908592236624182801
       Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_10: 2492104690626832231
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_25: 6369846123846453502
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_37: 3201187216959622192
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_33: -9144069051318328055
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_38: 3229090618205305890
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_40: 789329991666892075
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_8: -6548443136736984356
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_11: 7942458814390890394
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_12: -4419781093917103727
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_13: -3420069868775723228
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_14: -1658651887462659250
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_15: 2536810513971390204
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_16: -2133409401568699814
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_17: -3418854547045285666
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_18: -5291777911465187339
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_19: -8261586732516225101
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_2: 7708930032001437799
       Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_20: -2522071033218897004
       Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_21: 1750391620752442210
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_28: -8837793672618419463
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_19: -8261586732516225101
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_32: 220445061210062281
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_36: 111998604529861187
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_26: -8361020145659168480
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_4: 8054999783658563491
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_5: 3568120661864194315
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_17: -3418854547045285666
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_15: 2536810513971390204
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_1: 2908592236624182801
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_11: 7942458814390890394
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_7: -1663591504370042298
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_0: -6826831186250956815
       Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_22: -9200920838161468504
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_14: -1658651887462659250
       Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_23: -9112342071583121698
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_9: -1619872287464233621
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_16: -2133409401568699814
-      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_2: 7708930032001437799
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_24: 5850339639688258312
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_25: 6369846123846453502
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_26: -8361020145659168480
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_27: -880674876031457209
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_28: -8837793672618419463
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_29: -2679631264932870170
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_3: -2082955441078430534
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_30: -35330246918993485
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_31: 3778235013355795352
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_32: 220445061210062281
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_33: -9144069051318328055
       Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_34: 4015781989760561839
       Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_35: 4009934229724802261
-  spritePackingTag: 
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_36: 111998604529861187
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_37: 3201187216959622192
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_38: 3229090618205305890
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_39: -5096845853063368743
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_4: 8054999783658563491
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_40: 789329991666892075
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_5: 3568120661864194315
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_6: -1493191071480523210
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_7: -1663591504370042298
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_8: -6548443136736984356
+      Steampunk_UI_Lvl_Icon_Nmbrs_Ltrs_9: -1619872287464233621
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
