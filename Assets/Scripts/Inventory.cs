@@ -32,11 +32,11 @@ public class Inventory : MonoBehaviour
     }
     #endregion
 
-    public static event Action OnItemChanged;
+    // public static event Action OnItemChanged;
     
-    //public delegate void OnItemChanged();
+    public delegate void OnItemChanged();
 
-    //public OnItemChanged onItemChangedCallback;
+    public OnItemChanged onItemChangedCallback;
     
     public int space = 20;
     [SerializeField] private bool createItemDropOnRemove = false;
@@ -66,9 +66,9 @@ public class Inventory : MonoBehaviour
                 items.Add(new InventoryItem(item, 1));
             }
 
-            // if(onItemChangedCallback != null)
-            //     onItemChangedCallback.Invoke();
-            OnItemChanged?.Invoke();
+            if(onItemChangedCallback != null)
+                onItemChangedCallback.Invoke();
+            // OnItemChanged?.Invoke();
         }
 
         return true;
@@ -100,11 +100,11 @@ public class Inventory : MonoBehaviour
                 }
             }
         
-            // if (onItemChangedCallback != null)
-            // {
-            //     onItemChangedCallback.Invoke();
-            // }
-            OnItemChanged?.Invoke();
+            if (onItemChangedCallback != null)
+            {
+                onItemChangedCallback.Invoke();
+            }
+            // OnItemChanged?.Invoke();
         }
         else
         {
