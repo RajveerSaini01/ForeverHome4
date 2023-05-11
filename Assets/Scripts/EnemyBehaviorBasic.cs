@@ -127,7 +127,7 @@ public class EnemyBehaviorSight : MonoBehaviour
         
         StartCoroutine(nameof(Wander));
     }
-    
+
     private bool PlayerInsideVision()
     {
         return enemySight.canSeePlayer;

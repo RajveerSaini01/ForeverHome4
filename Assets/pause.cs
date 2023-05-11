@@ -1,40 +1,48 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class pause : MonoBehaviour
 {
-    public static bool isGamePaused = false;
+    public bool paused;
 
     [SerializeField] private GameObject pauseMenu;
-    void Update()
+
+    private void Awake()
+    {
+        paused = false;
+    }
+    
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (isGamePaused)
-            {
-                ResumeGame();
-            }
-            else
-            {
-                PauseGame();
-            }
+            ToggleState();
         }
     }
 
-    public void ResumeGame()
+    public void ToggleState()
     {
-        pauseMenu.SetActive(false);
-        Time.timeScale = 1f;
-        isGamePaused = false;
-    }
+        paused = !paused;
+        pauseMenu.SetActive(paused);
+        Time.timeScale = paused ? 0f : 1f;
 
-    void PauseGame()
-    {
-        pauseMenu.SetActive(true);
-        Time.timeScale = 0f;
-        isGamePaused = true;
     }
+    
+    // public void ResumeGame()
+    // {
+    //     pauseMenu.SetActive(false);
+    //     Time.timeScale = 1f;
+    //     isGamePaused = false;
+    // }
+    //
+    // void PauseGame()
+    // {
+    //     pauseMenu.SetActive(true);
+    //     Time.timeScale = 0f;
+    //     isGamePaused = true;
+    // }
     
     
 }
