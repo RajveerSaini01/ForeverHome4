@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
         ragdoll = GetComponent<Ragdoll>();
     }
 
+    // Change each weapon's Shoot() function to use Hitbox's OnRaycastHit instead of TakeDamage()
     public void TakeDamage(float damage)
     {
         if (currentHealth != null)

@@ -56,7 +56,7 @@ public class LevelGeneration : MonoBehaviour
 
     void Start()
     {
-        BuildMap(false);
+        BuildMap(isHome);
     }
 
     void BuildMap(bool home)

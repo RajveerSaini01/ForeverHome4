@@ -161,6 +161,7 @@ GameObject:
   - component: {fileID: 430112}
   - component: {fileID: 3345050}
   - component: {fileID: 2377726}
+  - component: {fileID: 4482453377821304017}
   m_Layer: 0
   m_Name: Toadstool03_LOD0
   m_TagString: Untagged
@@ -233,6 +234,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4482453377821304017
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111658}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300008, guid: ddf0da98c182f534880f70c8ece50e02, type: 3}
 --- !u!1 &113666
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,6 +267,7 @@ GameObject:
   - component: {fileID: 402512}
   - component: {fileID: 3309960}
   - component: {fileID: 2304962}
+  - component: {fileID: 5685341542392228561}
   m_Layer: 0
   m_Name: Toadstool02_LOD0
   m_TagString: Untagged
@@ -316,6 +340,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5685341542392228561
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113666}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300008, guid: 11fc9695fdee2a04f858822efbaaa0d8, type: 3}
 --- !u!1 &133148
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,6 +456,7 @@ GameObject:
   - component: {fileID: 412322}
   - component: {fileID: 3331984}
   - component: {fileID: 2330430}
+  - component: {fileID: 771122433332035131}
   m_Layer: 0
   m_Name: Toadstool01_LOD0
   m_TagString: Untagged
@@ -482,6 +529,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &771122433332035131
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143030}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300008, guid: f86e0e83a78f2844b80e5ce5785780b8, type: 3}
 --- !u!1 &146780
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,7 +1194,7 @@ GameObject:
   - component: {fileID: 491794}
   m_Layer: 0
   m_Name: ToadstoolsGroup01
-  m_TagString: Untagged
+  m_TagString: BigShroom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
