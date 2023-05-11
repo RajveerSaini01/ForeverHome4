@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Interactable
   - ouch
+  - Floor
+  - Enemy
+  - Bullet
+  - HItbox
   layers:
   - Default
   - TransparentFX

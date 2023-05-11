@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -169,8 +168,6 @@ public class FirstPersonController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         defaultYPos = playerCamera.transform.localPosition.y;
         defaultFOV = playerCamera.fieldOfView;
-        currentHealth = maxHealth;
-        currentStamina = maxStamina;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -195,8 +192,7 @@ public class FirstPersonController : MonoBehaviour
             if (canZoom)
                 HandleZoom();
 
-            if (useStamina)
-                HandleStamina();
+
 
             if (Input.GetKeyDown(KeyCode.I))
             {
