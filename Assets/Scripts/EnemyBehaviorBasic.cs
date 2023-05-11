@@ -1,8 +1,6 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
-using Random = UnityEngine.Random;
 
 public class EnemyBehaviorSight : MonoBehaviour
 {
@@ -34,15 +32,9 @@ public class EnemyBehaviorSight : MonoBehaviour
 
     Animator animator; 
     int randomNumber = 0;
-    
-    // Ray's Additions
-    [SerializeField]
-    private string state;
-    private float timeElapsed; // For use in updating Pursue() pathing in intervals
-    
-    private void Awake()
+
+    void Start()
     {
-        // Hookup internals
         ragdoll = GetComponent<Ragdoll>();
         animator = GetComponent<Animator>();
         healthBar = GetComponentInChildren<UIHealthBar>();
@@ -51,190 +43,110 @@ public class EnemyBehaviorSight : MonoBehaviour
         destination = initialPosition;
         agent = GetComponent<NavMeshAgent>();
         enemySight = GetComponent<EnemySight>();
-        
+        target = GameObject.FindGameObjectWithTag("Player").transform;
         var rigidBodies = GetComponentsInChildren<Rigidbody>();
         foreach(var rigidBody in rigidBodies){
             Hitbox hitBox = rigidBody.gameObject.AddComponent<Hitbox>();
-            hitBox.health = health;
+            hitBox.health =  this.health;
         }
-        
-        // Wait for map baking completion
-        Debug.Log("Subscribed to wait");
-        LevelGeneration.OnReady += OnMapReady;
     }
 
-    private void OnMapReady()
+void Update()
+{
+    animator.SetFloat("Speed", agent.velocity.magnitude);
+    if (health <= panickNum && panicked == false)
     {
-        // Hookup Player / Targeting
-        target = GameObject.FindGameObjectWithTag("Player").transform;
-        Debug.Log("Map Ready");
-
-        // Start State
-        StartCoroutine(nameof(Wander));
-    }
-
-    private void Update()
-    {
-        /*  So the way this works now is:
-            - coroutines change enemy states.
-            - The stuff inside Update() increment the behavior of each state
-            - Exit conditions are built into the coroutines and/or the update()
-            
-            To add a state, build a transition from a previous state, or an exclusive trigger in Update()
-            e.g. Panic state will be the result of falling below a health threshold 
-                  -  Create a trigger in Update() to check health % and current state
-                    
-                 Panic will stop any wander/pursue coroutines
-                  -  Create a case statement in Update() to handle mechanics of panicking.
-        */
-        
-        switch (state)
+        randomNumber = Random.Range(1, 6);
+        if (randomNumber == 1)
         {
-            case "Wandering": // Pick a new wander location, then pick another one when we get there. (excepted by player entering vision)
-                if (Vector3.Distance(transform.position, agent.destination) < 0.5f)
-                {
-                    agent.destination = GetNewWanderDestination();
-                }
-                break;
-            
-            case "Pursuing": // Move to the player's location every 1s or if the player moves too far from the destination. (excepted by player exiting vision)
-                timeElapsed += Time.deltaTime;
-                if ((Vector3.Distance(target.position, agent.destination) > 5f || timeElapsed >= 1f) && PlayerInsideVision())
-                {
-                    agent.destination = target.position;
-                    timeElapsed = 0;
-                }
-                break;
+            Panick();
+            randomNumber = 0;
         }
     }
-    
-    private IEnumerator Wander()
+    if (enemySight.canSeePlayer)
     {
-        state = "Wandering";
-        agent.speed = walkSpeed;
-        animator.SetFloat("Speed", agent.velocity.magnitude);
-        yield return new WaitUntil(PlayerInsideVision);
+        persistence = maxpersistence;
+        lastKnownPosition = target.transform.position;
+        Pursue();
+    }
+    else if (persistence > 0)
+    {
+        Search();
+    }
+    else
+    {
+        Wander();
+    }
+}
 
-        StartCoroutine(nameof(Pursue));
-    }
-
-    private IEnumerator Pursue()
+void Wander()
+{
+    if (Vector3.Distance(transform.position, destination) <= 1f)
     {
-        state = "Pursuing";
-        agent.speed = runSpeed;
-        animator.SetFloat("Speed", agent.velocity.magnitude);
-        yield return new WaitUntil(PlayerOutsideVision); 
-        
-        StartCoroutine(nameof(Wander));
-    }
-    
-    private bool PlayerInsideVision()
-    {
-        return enemySight.canSeePlayer;
-    }
-    private bool PlayerOutsideVision()
-    {
-        return !enemySight.canSeePlayer;
-    }
-    
-    // Emd of Ray's Hack -----------------------
-    
-    
-    //private void Update()
-    // {
-        // if (!mapReady)
-        // {
-        //     return;
-        // }
-        //
-        // animator.SetFloat("Speed", agent.velocity.magnitude);
-        //
-        // // If health is below a threshold and not already panicking, 1/6 chance of panic
-        // if (health <= panickNum && panicked == false)
-        // {
-        //     randomNumber = Random.Range(1, 6);
-        //     if (randomNumber == 1)
-        //     {
-        //         Panick();
-        //         randomNumber = 0;
-        //     }
-        // }
-        //
-        // // If player is visible, pursue according to persistence stat.
-        // if (enemySight.canSeePlayer)
-        // {
-        //     persistence = maxpersistence;
-        //     lastKnownPosition = target.transform.position;
-        //     Pursue();
-        // }
-        // else if (persistence > 0)
-        // {
-        //     Search();
-        // }
-        // else
-        // {
-        //     Wander();
-        // }
-        // }
-
-        // void Pursue()
-        // {
-        //     agent.speed = runSpeed;
-        //     if (Time.time % 5f == 0f) 
-        //     {
-        //         randomNumber = Random.Range(1, 6);
-        //     }
-        //     // Get the distance to the target
-        //     float distanceToTarget = Vector3.Distance(transform.position, target.position);
-        //
-        //     if (distanceToTarget <= orbitDistance)
-        //     {
-        //         //Start of code provided by mixandjam
-        //         Vector3 dir = (target.transform.position - transform.position).normalized;
-        //         Vector3 pDir = Quaternion.AngleAxis(90, Vector3.up) * dir;
-        //         Vector3 movedir = Vector3.zero;
-        //
-        //         Vector3 finalDirection = Vector3.zero;
-        //         //End of code by mixandjam
-        //         agent.destination = finalDirection;
-        //
-        //         agent.speed = 0f;
-        //         if (randomNumber == 5)
-        //         {
-        //             MeleeAttack();
-        //             return;
-        //         }
-        //     }
-        //     else
-        //     {
-        //         agent.destination = target.position;
-        //     }
-        // }
-    
-    void Search()
-    {
-        Debug.Log("Search Mode.");
         destination = GetNewSearchDestination();
         wanderDelay = 0f;
-        agent.speed = walkSpeed;
-        agent.destination = destination;
-        StartCoroutine(SearchDelay());
-        persistence--;
     }
+    agent.speed = walkSpeed;
+    StartCoroutine(WaitForWanderDuration());
+    agent.destination = destination;
+}
 
-    IEnumerator WaitForWanderDuration()
+void Search()
+{
+    Debug.Log("Search Mode.");
+    destination = GetNewSearchDestination();
+    wanderDelay = 0f;
+    agent.speed = walkSpeed;
+    agent.destination = destination;
+    StartCoroutine(SearchDelay());
+    persistence--;
+}
+
+IEnumerator WaitForWanderDuration()
+{
+    yield return new WaitForSeconds(wanderDuration);
+}
+
+IEnumerator SearchDelay()
+{
+    Debug.Log("Waiting");
+    yield return new WaitForSeconds(3);
+}
+    void Pursue()
     {
-        yield return new WaitForSeconds(wanderDuration);
+        agent.speed = runSpeed;
+        if (Time.time % 5f == 0f) 
+        {
+            randomNumber = Random.Range(1, 6);
+        }
+        // Get the distance to the target
+        float distanceToTarget = Vector3.Distance(transform.position, target.position);
+
+        if (distanceToTarget <= orbitDistance)
+        {
+            //Start of code provided by mixandjam
+            Vector3 dir = (target.transform.position - transform.position).normalized;
+            Vector3 pDir = Quaternion.AngleAxis(90, Vector3.up) * dir;
+            Vector3 movedir = Vector3.zero;
+
+            Vector3 finalDirection = Vector3.zero;
+            //End of code by mixandjam
+            agent.destination = finalDirection;
+
+            agent.speed = 0f;
+            if (randomNumber == 5)
+            {
+                MeleeAttack();
+                return;
+            }
+        }
+        else
+        {
+            agent.destination = target.position;
+        }
     }
 
-    IEnumerator SearchDelay()
-    {
-        Debug.Log("Waiting");
-        yield return new WaitForSeconds(3);
-    }
-    
-
-    void MeleeAttack()
+        void MeleeAttack()
     {
         agent.speed = runSpeed;
         agent.destination = target.position;

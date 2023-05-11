@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2121115777600547027}
   - component: {fileID: 2121115777599416851}
   - component: {fileID: 8434267840660418431}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Bush04_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,6 @@ Transform:
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2121115777601841395}
   m_RootOrder: 0
@@ -53,12 +52,9 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 2
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -70,7 +66,6 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -83,7 +78,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!259 &8434267840660418431
 LightProbeProxyVolume:
   m_ObjectHideFlags: 0
@@ -103,7 +97,6 @@ LightProbeProxyVolume:
   m_ProbePositionMode: 0
   m_RefreshMode: 0
   m_QualityMode: 0
-  m_DataFormat: 1
 --- !u!1 &2121115777601418451
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,9 +107,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2121115777601841395}
   - component: {fileID: 2121115777583152211}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: P_Bush04
-  m_TagString: Bush
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,7 +124,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2121115777601841393}
   - {fileID: 2121115777601841399}
@@ -183,7 +175,7 @@ GameObject:
   - component: {fileID: 2121115777600547031}
   - component: {fileID: 2121115777599416855}
   - component: {fileID: 5478717489039897902}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Bush04_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +192,6 @@ Transform:
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2121115777601841395}
   m_RootOrder: 2
@@ -224,12 +215,9 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 2
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -241,7 +229,6 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -254,7 +241,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!259 &5478717489039897902
 LightProbeProxyVolume:
   m_ObjectHideFlags: 0
@@ -274,7 +260,6 @@ LightProbeProxyVolume:
   m_ProbePositionMode: 0
   m_RefreshMode: 0
   m_QualityMode: 0
-  m_DataFormat: 1
 --- !u!1 &2121115777601418455
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,7 +272,7 @@ GameObject:
   - component: {fileID: 2121115777600547025}
   - component: {fileID: 2121115777599416849}
   - component: {fileID: 3225938465742569743}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Bush04_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,7 +289,6 @@ Transform:
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2121115777601841395}
   m_RootOrder: 1
@@ -328,12 +312,9 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 2
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -345,7 +326,6 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -358,7 +338,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!259 &3225938465742569743
 LightProbeProxyVolume:
   m_ObjectHideFlags: 0
@@ -378,7 +357,6 @@ LightProbeProxyVolume:
   m_ProbePositionMode: 0
   m_RefreshMode: 0
   m_QualityMode: 0
-  m_DataFormat: 1
 --- !u!1 &2121115777601418459
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,7 +369,7 @@ GameObject:
   - component: {fileID: 2121115777600547029}
   - component: {fileID: 2121115777599416853}
   - component: {fileID: 6057421060386142568}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Bush04_LOD3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -408,7 +386,6 @@ Transform:
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2121115777601841395}
   m_RootOrder: 3
@@ -432,12 +409,9 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 2
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -449,7 +423,6 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -462,7 +435,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!259 &6057421060386142568
 LightProbeProxyVolume:
   m_ObjectHideFlags: 0
@@ -482,4 +454,3 @@ LightProbeProxyVolume:
   m_ProbePositionMode: 0
   m_RefreshMode: 0
   m_QualityMode: 0
-  m_DataFormat: 1

@@ -17,12 +17,7 @@ public class EnemySight : MonoBehaviour
 
     public bool canSeePlayer;
 
-    private void Awake()
-    {
-        LevelGeneration.OnReady += OnMapReady;
-    }
-
-    void OnMapReady()
+    void Start()
     {
         playerRef = GameObject.FindGameObjectWithTag("Player");
         if (playerRef == null)
@@ -35,14 +30,13 @@ public class EnemySight : MonoBehaviour
     //Every 2 milliseconds, check if player is within LOS. Saves on performance. 
     private IEnumerator FOVRoutine()
     {
-        //float delay = 0.2f;
-        //WaitForSeconds wait = new WaitForSeconds(delay);
+        float delay = 0.2f;
+        WaitForSeconds wait = new WaitForSeconds(delay);
 
         while(true)
         {
-            //yield return wait;
+            yield return wait;
             FieldOfViewCheck();
-            yield return new WaitForSeconds(0.2f);
         }
     }
 

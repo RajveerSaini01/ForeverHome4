@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 239056695013632802}
   - component: {fileID: 239056695013632803}
   - component: {fileID: 5980801777933256190}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: FirstPersonController
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 239056695663500504}
   - component: {fileID: 239056695663500506}
   - component: {fileID: 239056695663500507}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}

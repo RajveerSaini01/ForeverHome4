@@ -27,36 +27,22 @@ public class RangedEnemyBehaviorSight : MonoBehaviour
     private NavMeshAgent agent;
     private EnemySight enemySight;
     private Vector3 lastKnownPosition;
-    [HideInInspector]
-    UIHealthBar healthBar;
-    Animator animator; 
-
-    Ragdoll ragdoll;
+    
     private float cooldown = 3f;
 
     int randomNumber = 0;
 
     void Start()
     {
-        ragdoll = GetComponent<Ragdoll>();
-        animator = GetComponent<Animator>();
-        healthBar = GetComponentInChildren<UIHealthBar>();
         maxHealth = health;
         initialPosition = transform.position;
         destination = initialPosition;
         agent = GetComponent<NavMeshAgent>();
         enemySight = GetComponent<EnemySight>();
-        target = GameObject.FindGameObjectWithTag("Player").transform;
-        var rigidBodies = GetComponentsInChildren<Rigidbody>();
-        foreach(var rigidBody in rigidBodies){
-            Hitbox hitBox = rigidBody.gameObject.AddComponent<Hitbox>();
-            hitBox.health =  this.health;
-        }
     }
 
 void Update()
 {
-    animator.SetFloat("Speed", agent.velocity.magnitude);
     if (health <= panickNum && panicked == false)
     {
         randomNumber = Random.Range(1, 6);
