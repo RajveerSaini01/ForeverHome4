@@ -5,11 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Interactable
+<<<<<<< HEAD
   - ouch
   - Floor
   - Enemy
   - Bullet
   - HItbox
+=======
+>>>>>>> parent of 7c562709 (Finished inventory)
   layers:
   - Default
   - TransparentFX

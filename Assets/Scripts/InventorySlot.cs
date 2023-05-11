@@ -2,74 +2,60 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using TMPro;
 
-public class InventorySlot : MonoBehaviour
+
+public class InventorySlot : MonoBehaviour, IDropHandler
 {
     public Image icon;
     public Button removeButton;
+    
+    Item item;
 
-    InventoryItem inventoryItem;
-    public TMP_Text quantity;
-
-    public void AddItem(InventoryItem newInventoryItem)
+    public void AddItem(Item newItem)
     {
-        inventoryItem = newInventoryItem;
+        item = newItem;
 
-        icon.sprite = inventoryItem.item.icon;
+        icon.sprite = item.icon;
         icon.enabled = true;
         removeButton.interactable = true;
-
-        if (inventoryItem.item.isStackable)
-        {
-            quantity.text = inventoryItem.quantity.ToString();
-            quantity.enabled = true;
-        }
-        else
-        {
-            quantity.enabled = false; 
-        }
     }
 
     public void ClearSlot()
     {
-        inventoryItem = null;
+        item = null;
 
         icon.sprite = null;
         icon.enabled = false;
         removeButton.interactable = false;
-        quantity.enabled = false;
     }
 
     public void OnRemoveButton()
     {
-        Inventory.instance.Remove(inventoryItem);
+        Inventory.instance.Remove(item);
     }
 
     public void UseItem()
     {
-        if (inventoryItem != null)
+        if (item != null)
         {
-            inventoryItem.item.Use();
-            if (inventoryItem.item.isStackable)
-            {
-                 inventoryItem.quantity--;
-                
-                    if (inventoryItem.quantity == 0)
-                    {
-                        
-                        ClearSlot();
-                        Inventory.instance.Remove(inventoryItem);
-                    }
-                    else
-                    {
-                        quantity.text = inventoryItem.quantity.ToString();
-                    }
-            }
-           
+            item.Use();
         }
     }
 
-    
+    public void OnDrop(PointerEventData eventData)
+    {
+        GameObject dropped = eventData.pointerDrag;
+        DraggableItem draggableItem = dropped.GetComponent<DraggableItem>();
+        draggableItem.parentAfterDrag = transform;
+        
+        RectTransform droppedRectTransform = dropped.GetComponent<RectTransform>();
+        droppedRectTransform.localPosition = Vector3.zero;
+        droppedRectTransform.anchorMin = Vector2.zero;
+        droppedRectTransform.anchorMax = Vector2.one;
+        droppedRectTransform.pivot = new Vector2(0.5f, 0.5f);
+
+        // Force the Layout Group to update
+        LayoutRebuilder.ForceRebuildLayoutImmediate(transform.parent.GetComponent<RectTransform>());
+    }
     
 }

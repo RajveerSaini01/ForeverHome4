@@ -35,8 +35,6 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField]private float timeBeforeRegenStarts = 3.0f;
     [SerializeField]private float healthValueIncrement = 1;
     [SerializeField]private float healthTimeIncrement = 0.1f;
-    [SerializeField] private float damageAmount = 10f;
-    public string damagingObjectTag = "ouch";
     private float currentHealth;
     private Coroutine regenertingHealth;
     public static Action<float> OnTakeDamage;
@@ -330,13 +328,12 @@ public class FirstPersonController : MonoBehaviour
         if (currentHealth <= 0)
         {
             KillPlayer();
+        }else if (regenertingHealth != null)
+        {
+            StopCoroutine(regenertingHealth);
         }
-        // else if (regenertingHealth != null)
-        // {
-        //     StopCoroutine(regenertingHealth);
-        // }
 
-        // regenertingHealth = StartCoroutine(RegenerateHealth()); 
+        regenertingHealth = StartCoroutine(RegenerateHealth()); 
     }
 
     private void KillPlayer()
@@ -455,24 +452,24 @@ public class FirstPersonController : MonoBehaviour
         zoomRoutine = null; 
     }
 
-    // private IEnumerator RegenerateHealth()
-    // {
-    //     yield return new WaitForSeconds(timeBeforeRegenStarts);
-    //     WaitForSeconds timeToWait = new WaitForSeconds(healthTimeIncrement);
-    //
-    //     while (currentHealth < maxHealth)
-    //     {
-    //         currentHealth += healthValueIncrement;
-    //
-    //         if (currentHealth > maxHealth)
-    //             currentHealth = maxHealth;
-    //         
-    //         OnHeal?.Invoke(currentHealth);
-    //         yield return timeToWait;
-    //     }
-    //
-    //     regenertingHealth = null; 
-    // }
+    private IEnumerator RegenerateHealth()
+    {
+        yield return new WaitForSeconds(timeBeforeRegenStarts);
+        WaitForSeconds timeToWait = new WaitForSeconds(healthTimeIncrement);
+
+        while (currentHealth < maxHealth)
+        {
+            currentHealth += healthValueIncrement;
+
+            if (currentHealth > maxHealth)
+                currentHealth = maxHealth;
+            
+            OnHeal?.Invoke(currentHealth);
+            yield return timeToWait;
+        }
+
+        regenertingHealth = null; 
+    }
 
     private IEnumerator RegenerateStamina()
     {
@@ -497,6 +494,7 @@ public class FirstPersonController : MonoBehaviour
         regenerateStamina = null;
     }
 
+<<<<<<< HEAD
     public void IncreaseHealth(float amount)
     {
         currentHealth += amount;
@@ -510,3 +508,7 @@ public class FirstPersonController : MonoBehaviour
 
    
 }
+=======
+    
+}
+>>>>>>> parent of 7c562709 (Finished inventory)
