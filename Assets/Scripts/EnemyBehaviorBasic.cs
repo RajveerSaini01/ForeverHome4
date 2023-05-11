@@ -353,8 +353,8 @@ public class EnemyBehaviorSight : MonoBehaviour
 
     public void TakeDamage(float damage, Vector3 direction)
     {
-        healthBar.SetHealthBarPercentage(health/maxHealth);
         health -= damage;
+        healthBar.SetHealthBarPercentage(health/maxHealth);
         if (health <= 0.0f)
         {
             Die(direction);

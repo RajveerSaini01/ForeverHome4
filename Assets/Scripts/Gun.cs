@@ -83,10 +83,12 @@ public class Gun : MonoBehaviour
             if (hit.collider != null)
             {
                 Debug.Log("Hit object: " + hit.collider.gameObject.name);
-                Enemy enemy = hit.collider.gameObject.GetComponent<Enemy>();
-                if (enemy != null)
+                GameObject enemy = hit.collider.gameObject;
+                Enemy enemyScript = enemy.GetComponent<Enemy>();
+                if (enemyScript != null)
                 {
-                    enemy.TakeDamage(damage);
+                    //enemy.TakeDamage(damage);
+                    enemy.GetComponent<Hitbox>().OnRaycastHit(damage, ray.direction);
                 }
                 else
                 {

@@ -82,7 +82,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpawnPoint: {fileID: 6134286466342980240}
   bulletPrefab: {fileID: 6494797111033276777, guid: 4372a55c39451bf469cf6b046d2ccfa1, type: 3}
-  damage: 100
+  damage: 25
   range: 100
   muzzleFlash: {fileID: 0}
   maxAmmo: 5

@@ -5324,7 +5324,7 @@ Transform:
   - {fileID: 8431272339295852893}
   - {fileID: 1853057611}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &444326145683225438
 Animator:
@@ -5472,8 +5472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc734ef34e31fcf419ed1ec4cedaa52b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behavior: {fileID: 0}
-  skinnedMeshRenderer: {fileID: 0}
+  behavior: {fileID: 492266844254408147}
   health: 0
   blinkIntensity: 20
   blinkDuration: 1
