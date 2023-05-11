@@ -1190,4 +1190,4 @@ MonoBehaviour:
     amplitude: 4
   scatterDensity: 0.2
   scatterRadius: 180
-  playerPrefab: {fileID: 65818409005827109, guid: e102374383e710c499e1fa32cdc4bb7b, type: 3}
+  playerPrefab: {fileID: 239056695013632801, guid: 4a6d8c239d9abcc4b8355d2761744ab3, type: 3}

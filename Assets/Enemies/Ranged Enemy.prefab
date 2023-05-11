@@ -4246,6 +4246,8 @@ GameObject:
   - component: {fileID: 757162424982194263}
   - component: {fileID: 1991017622270838121}
   - component: {fileID: 2318203877749541519}
+  - component: {fileID: -3512171497598039741}
+  - component: {fileID: 4378480147843819518}
   m_Layer: 0
   m_Name: Ranged Enemy
   m_TagString: Enemy
@@ -4403,6 +4405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behavior: {fileID: 0}
+  skinnedMeshRenderer: {fileID: 0}
   health: 0
   blinkIntensity: 20
   blinkDuration: 1
@@ -4429,6 +4432,40 @@ MonoBehaviour:
   panickNum: 20
   firePoint: {fileID: 0}
   target: {fileID: 0}
+--- !u!114 &-3512171497598039741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7646182408313601055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24638b9d4de89904fa91e500929ccd99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+--- !u!65 &4378480147843819518
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7646182408313601055}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 4, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7734467376764737833
 GameObject:
   m_ObjectHideFlags: 0
