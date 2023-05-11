@@ -17,26 +17,25 @@ public class ItemPickup : Interactable
    private void OnMapReady()
    {
       // At this point,FirstPersonController exists
-      InteractHandler.OnInteract += PickUp;
+      // InteractHandler.OnInteract += PickUp;
    }
 
-   // public override void Interact()
-   // {
-   //    base.Interact();
-   //
-   //    PickUp();
-   // }
+   public override void Interact()
+   {
+      base.Interact();
+   
+      PickUp();
+   }
 
-   void PickUp(string nm)
+   void PickUp()
    {
       Debug.Log("Inside Item " + item.name);
-      if (item.name == nm)
-      {
+      
          Debug.Log("Picking up Item. " + item.name);
          bool wasPickedUp = Inventory.instance.Add(item);
       
          if(wasPickedUp)
             Destroy(gameObject);
-      }
+      
    }
 }

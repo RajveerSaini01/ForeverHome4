@@ -89,7 +89,7 @@ MonoBehaviour:
   jumpKey: 32
   crouchKey: 306
   zoomKey: 324
-  interactKey: 102
+  interactKey: 101
   maxHealth: 100
   timeBeforeRegenStarts: 3
   healthValueIncrement: 1
@@ -129,7 +129,7 @@ MonoBehaviour:
   interactionDistance: 2
   interactionLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   focus: {fileID: 0}
 --- !u!114 &4998364656171387604
 MonoBehaviour:
