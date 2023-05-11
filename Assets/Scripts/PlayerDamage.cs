@@ -42,6 +42,12 @@ public class PlayerDamage : MonoBehaviour
         isOnCooldown = false;
     }
 
+    public void TakeDamage(float damage){
+        health -= damage;
+        DamageFlash();
+        Debug.Log(health);
+    }
+
     private IEnumerator DamageFlash()
     {
         Renderer renderer = GetComponent<Renderer>();
