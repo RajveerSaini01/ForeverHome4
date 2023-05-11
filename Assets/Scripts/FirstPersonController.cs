@@ -136,7 +136,7 @@ public class FirstPersonController : MonoBehaviour
     private Vector2 currentInput;
 
     private float rotationX = 0;
-    //public Interactable focus;
+    public Interactable focus;
     
     private void OnEnable()
     {
@@ -191,41 +191,41 @@ public class FirstPersonController : MonoBehaviour
             if (useStamina)
                 HandleStamina();
             
-            // if (Input.GetKeyDown(KeyCode.I))
-            // {
-            //     ToggleCursorLock();
-            // }
-            //
-            // if (Input.GetKeyDown(KeyCode.F))
-            // {
-            //     Ray ray = playerCamera.ScreenPointToRay(Input.mousePosition);
-            //     RaycastHit hit;
-            //
-            //     if (Physics.Raycast(ray, out hit, 100))
-            //     {
-            //         Interactable interactable = hit.collider.GetComponent<Interactable>();
-            //         if (interactable != null)
-            //         {
-            //             SetFocus(interactable);
-            //         }
-            //     }
-            // }
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                ToggleCursorLock();
+            }
+            
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Ray ray = playerCamera.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+            
+                if (Physics.Raycast(ray, out hit, 100))
+                {
+                    Interactable interactable = hit.collider.GetComponent<Interactable>();
+                    if (interactable != null)
+                    {
+                        SetFocus(interactable);
+                    }
+                }
+            }
 
             ApplyFinalMovements();
         }   
     }
     
-    // void SetFocus(Interactable newFocus)
-    // {
-    //     if (newFocus != focus)
-    //     {
-    //         if(focus != null)
-    //             focus.onDefocused();
-    //         
-    //         focus = newFocus;
-    //     }
-    //     newFocus.OnFocused(transform);
-    // }
+    void SetFocus(Interactable newFocus)
+    {
+        if (newFocus != focus)
+        {
+            if(focus != null)
+                focus.onDefocused();
+            
+            focus = newFocus;
+        }
+        newFocus.OnFocused(transform);
+    }
     
     private void HandleMovementInput()
     {
@@ -247,19 +247,19 @@ public class FirstPersonController : MonoBehaviour
         transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeedX, 0);
     }
 
-    // private void ToggleCursorLock()
-    // {
-    //     if (Cursor.lockState == CursorLockMode.Locked)
-    //     {
-    //         Cursor.lockState = CursorLockMode.None;
-    //         Cursor.visible = true;
-    //     }
-    //     else
-    //     {
-    //         Cursor.lockState = CursorLockMode.Locked;
-    //         Cursor.visible = false;
-    //     }
-    // }
+    private void ToggleCursorLock()
+    {
+        if (Cursor.lockState == CursorLockMode.Locked)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+    }
     
     private void HandleJump()
     {

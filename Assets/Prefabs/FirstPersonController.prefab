@@ -125,11 +125,12 @@ MonoBehaviour:
   crouchBobAmount: 0.025
   timeToZoom: 0.3
   zoomFOV: 30
-  interactionRayPoint: {x: 0, y: 0, z: 0}
-  interactionDistance: 0
+  interactionRayPoint: {x: 0.5, y: 0.5, z: 0}
+  interactionDistance: 2
   interactionLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
+  focus: {fileID: 0}
 --- !u!114 &4998364656171387604
 MonoBehaviour:
   m_ObjectHideFlags: 0
