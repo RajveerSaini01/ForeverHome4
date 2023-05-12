@@ -76,7 +76,7 @@ public class WeaponScript : MonoBehaviour
     {
         if (gameObject.name == nm)
         {
-            Debug.Log("Picking up " + nm);
+            //Debug.Log("Picking up " + nm);
             GameObject equippable = Instantiate(gameObject, holsterTransform.position, holsterTransform.rotation, holsterTransform);
             equippable.name = name;
             equippable.GetComponent<WeaponScript>().equipped = true;
@@ -86,8 +86,8 @@ public class WeaponScript : MonoBehaviour
             wepPhysics.isKinematic = true;
             
             Weapon holstered = new Weapon(equippable, ammo);
-            PlayerHolsterScript.holster.Add(holstered);
-            PlayerHolsterScript.setActiveWeapon(holstered);
+            PlayerHolsterScript.AddWeaponToHolster(holstered);
+            PlayerHolsterScript.SetActiveWeapon(holstered);
             Destroy(gameObject);
         }
     }

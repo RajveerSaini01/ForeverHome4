@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 239056695013632802}
   - component: {fileID: 239056695013632803}
   - component: {fileID: 5980801777933256190}
-  - component: {fileID: 4998364656171387604}
   - component: {fileID: -474035501585767160}
   - component: {fileID: 7672288129401479351}
   - component: {fileID: 4109655752926785420}
@@ -37,7 +36,7 @@ Transform:
   - {fileID: 239056695663500504}
   - {fileID: 5216885568964874196}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &239056695013632803
 CharacterController:
@@ -131,31 +130,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   focus: {fileID: 0}
---- !u!114 &4998364656171387604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 239056695013632801}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42ae0b4b22c2bb844a89d1676ebb5e1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gunsOnFloor:
-  - {fileID: 5925927953933287098, guid: d953ec80ad84750458fe2857bdd17afd, type: 3}
-  - {fileID: 7248152345524174159, guid: 731df2ad29a437b4cb01136760a63375, type: 3}
-  - {fileID: 8693954430693381267, guid: dc67079d12d8f0743a3a048382c3e628, type: 3}
-  - {fileID: 2319520475057773349, guid: 0243b9cadb510ac449a5c211272782e4, type: 3}
-  activeGuns:
-  - {fileID: 7558064231436052867, guid: 618c434ff315c8940af2b77e8582e84e, type: 3}
-  - {fileID: 8538747554290255707, guid: c7602d983de0e214cba5f061c8903e48, type: 3}
-  - {fileID: 2765085632038788838, guid: c71aec0140954d24089c672ec295e32c, type: 3}
-  - {fileID: 15903383503820006, guid: 5a99d224ee2565444a28e01f3a2581c8, type: 3}
-  maxDistance: 2
-  ammoText: {fileID: 0}
-  pickupText: {fileID: 0}
 --- !u!114 &-474035501585767160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d410f64908d682468090ec4a7f34c03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holsterData: {fileID: 11400000, guid: fb39ab100fdb65346930650a32ccd7a0, type: 2}
   activeWeapon:
     weaponObject: {fileID: 0}
     ammoCount: 0
