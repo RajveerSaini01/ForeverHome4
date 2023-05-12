@@ -100,13 +100,16 @@ public class TileGeneration : MonoBehaviour
 		BuildNavMesh(gameObject);
 		
 		yield return 0;
-		
+
 		// Place animate/dynamic prefabs
-		for (int i = 0; i < dynamicPrefabs.Length; i++)
-		{
-			float[,] generativeMap = GenerateScatterMap(offsetX+i, offsetZ+i);
-			ParityScatter(dynamicPrefabs[i], generativeMap, scatterRadius);
+		if (!isHome){
+			for (int i = 0; i < dynamicPrefabs.Length; i++)
+			{
+				float[,] generativeMap = GenerateScatterMap(offsetX + i, offsetZ + i);
+				ParityScatter(dynamicPrefabs[i], generativeMap, scatterRadius);
+			}
 		}
+
 		
 		// build a Texture2D from the height map
 		Texture2D tileTexture = BuildTexture (heightMap);

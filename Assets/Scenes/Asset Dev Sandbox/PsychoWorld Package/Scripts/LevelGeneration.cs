@@ -71,8 +71,8 @@ public class LevelGeneration : MonoBehaviour
             heightWave[i] = new Wave(Random.Range(1f, 9999f), Random.Range(0.01f, 1.0f),  Random.Range(0.01f, 1.0f));
         }
         
-        rawMapWidth = Random.Range(2, 7);
-        rawMapDepth = Random.Range(2, 7);
+        rawMapWidth = Random.Range(4, 8);
+        rawMapDepth = Random.Range(4, 8);
         
         if (borderThickness < 3)
         {
