@@ -6,19 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="fb6b4799-805e-4369-a6f9-bedbad7cfdfa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.foreverHome4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.foreverHome4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FirstPersonController.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FirstPersonController.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/DeagleDrop.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/DeagleDrop.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/Holster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/Holster.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/RevolverDrop.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/RevolverDrop.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/ShotgunDrop.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/ShotgunDrop.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/SniperDrop.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/SniperDrop.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/TestCabin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/TestCabin.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/TestCabinScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/TestCabinScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/WeaponScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/WeaponScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WeaponPrefabs/DeagleDrop.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WeaponPrefabs/DeagleDrop.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WeaponPrefabs/RevolverDrop.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WeaponPrefabs/RevolverDrop.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WeaponPrefabs/ShotgunDrop.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WeaponPrefabs/ShotgunDrop.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WeaponPrefabs/SniperDrop.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WeaponPrefabs/SniperDrop.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

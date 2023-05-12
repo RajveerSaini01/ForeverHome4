@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using TMPro;
 using UnityEditor;
@@ -89,7 +90,7 @@ public class Holster : MonoBehaviour
             // Cycle through holsterData's holster. Find the Weapon that matches our local active
             foreach (var weapon in holsterData.holster)
             {
-                if (weapon.weaponObject.name == activeWeapon.weaponObject.name)
+                if (activeWeapon.weaponObject.name.Contains(weapon.weaponObject.name))
                 {
                     holsterData.activeWeapon = weapon;
                 }
@@ -128,7 +129,7 @@ public class Holster : MonoBehaviour
         {
             string assetPath = AssetDatabase.GUIDToAssetPath(assets[i]);
             Object prefab = AssetDatabase.LoadAssetAtPath(assetPath, typeof(GameObject));
-            if (prefab.name == wp.weaponObject.name)
+            if (wp.weaponObject.name.Contains(prefab.name))
             {
                 Weapon prefabWep = new Weapon(prefab as GameObject, wp.ammoCount);
                 holsterData.holster.Add(prefabWep);

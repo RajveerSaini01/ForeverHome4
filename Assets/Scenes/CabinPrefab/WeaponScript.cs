@@ -74,7 +74,7 @@ public class WeaponScript : MonoBehaviour
 
     private void OnInteract(string nm)
     {
-        if (gameObject.name == nm)
+        if (gameObject.name == nm && !equipped)
         {
             //Debug.Log("Picking up " + nm);
             GameObject equippable = Instantiate(gameObject, holsterTransform.position, holsterTransform.rotation, holsterTransform);
