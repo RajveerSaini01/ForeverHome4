@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerDamage : MonoBehaviour
 {
@@ -34,6 +35,16 @@ public class PlayerDamage : MonoBehaviour
                     Invoke(nameof(EndCooldown), cooldownTime);
                 }
             }
+        }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        DamageFlash();
+        if(health <= 0)
+        {
+            SceneManager.LoadScene("Mainmenu");
         }
     }
 

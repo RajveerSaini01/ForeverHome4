@@ -13,6 +13,7 @@ public class EnemyBehaviorSight : MonoBehaviour
     public float maxpersistence = 3f;
     private float persistence = 0f;
     public float orbitDistance = 3f;
+    public float damage = 15f;
     public float health = 100f;
     private float maxHealth = 0;
     public float panickNum = 20f;
@@ -34,7 +35,8 @@ public class EnemyBehaviorSight : MonoBehaviour
 
     Animator animator; 
     int randomNumber = 0;
-    
+    private float lastMeleeAttackTime = 0f;
+    private float meleeAttackCooldown = 3f;
     // Ray's Additions
     [SerializeField]
     private string state;
@@ -102,7 +104,21 @@ public class EnemyBehaviorSight : MonoBehaviour
                 if ((Vector3.Distance(target.position, agent.destination) > 5f || timeElapsed >= 1f) && PlayerInsideVision())
                 {
                     agent.destination = target.position;
-                    timeElapsed = 0;
+                    agent.speed = runSpeed;
+                    timeElapsed = 0f;
+                }else if ((Vector3.Distance(target.position, agent.destination) < 1f || timeElapsed >= 1f) && PlayerInsideVision() && (Time.time - lastMeleeAttackTime > meleeAttackCooldown))
+                {
+                    agent.speed = 0;
+                    MeleeAttack();
+                    lastMeleeAttackTime = Time.time;
+                }
+                
+                break;
+
+            case "Searching": // Pick a new search location, then pick another one when we get there based on previous player destination. (excepted by player entering vision)
+                if (Vector3.Distance(transform.position, agent.destination) < 0.5f)
+                {
+                    agent.destination = GetNewSearchDestination();
                 }
                 break;
         }
@@ -124,10 +140,18 @@ public class EnemyBehaviorSight : MonoBehaviour
         agent.speed = runSpeed;
         animator.SetFloat("Speed", agent.velocity.magnitude);
         yield return new WaitUntil(PlayerOutsideVision); 
-        
-        StartCoroutine(nameof(Wander));
+        lastKnownPosition = target.position;
+        StartCoroutine(nameof(Search));
     }
-
+       private IEnumerator Search()
+    {
+        state = "Searching";
+        agent.speed = walkSpeed;
+        animator.SetFloat("Speed", agent.velocity.magnitude);
+        yield return new WaitUntil(PlayerInsideVision); 
+        
+        StartCoroutine(nameof(Pursue));
+    } 
     private bool PlayerInsideVision()
     {
         return enemySight.canSeePlayer;
@@ -137,90 +161,6 @@ public class EnemyBehaviorSight : MonoBehaviour
         return !enemySight.canSeePlayer;
     }
     
-    // Emd of Ray's Hack -----------------------
-    
-    
-    //private void Update()
-    // {
-        // if (!mapReady)
-        // {
-        //     return;
-        // }
-        //
-        // animator.SetFloat("Speed", agent.velocity.magnitude);
-        //
-        // // If health is below a threshold and not already panicking, 1/6 chance of panic
-        // if (health <= panickNum && panicked == false)
-        // {
-        //     randomNumber = Random.Range(1, 6);
-        //     if (randomNumber == 1)
-        //     {
-        //         Panick();
-        //         randomNumber = 0;
-        //     }
-        // }
-        //
-        // // If player is visible, pursue according to persistence stat.
-        // if (enemySight.canSeePlayer)
-        // {
-        //     persistence = maxpersistence;
-        //     lastKnownPosition = target.transform.position;
-        //     Pursue();
-        // }
-        // else if (persistence > 0)
-        // {
-        //     Search();
-        // }
-        // else
-        // {
-        //     Wander();
-        // }
-        // }
-
-        // void Pursue()
-        // {
-        //     agent.speed = runSpeed;
-        //     if (Time.time % 5f == 0f) 
-        //     {
-        //         randomNumber = Random.Range(1, 6);
-        //     }
-        //     // Get the distance to the target
-        //     float distanceToTarget = Vector3.Distance(transform.position, target.position);
-        //
-        //     if (distanceToTarget <= orbitDistance)
-        //     {
-        //         //Start of code provided by mixandjam
-        //         Vector3 dir = (target.transform.position - transform.position).normalized;
-        //         Vector3 pDir = Quaternion.AngleAxis(90, Vector3.up) * dir;
-        //         Vector3 movedir = Vector3.zero;
-        //
-        //         Vector3 finalDirection = Vector3.zero;
-        //         //End of code by mixandjam
-        //         agent.destination = finalDirection;
-        //
-        //         agent.speed = 0f;
-        //         if (randomNumber == 5)
-        //         {
-        //             MeleeAttack();
-        //             return;
-        //         }
-        //     }
-        //     else
-        //     {
-        //         agent.destination = target.position;
-        //     }
-        // }
-    
-    void Search()
-    {
-        Debug.Log("Search Mode.");
-        destination = GetNewSearchDestination();
-        wanderDelay = 0f;
-        agent.speed = walkSpeed;
-        agent.destination = destination;
-        StartCoroutine(SearchDelay());
-        persistence--;
-    }
 
     IEnumerator WaitForWanderDuration()
     {
@@ -236,14 +176,21 @@ public class EnemyBehaviorSight : MonoBehaviour
 
     void MeleeAttack()
     {
-        agent.speed = runSpeed;
-        agent.destination = target.position;
-        if (Vector3.Distance(transform.position, target.position) <= 2f) // If we hit the player, return to Pursue()
+        animator.SetBool("Attack", true);
+        var playerDamage = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDamage>();
+        if (Vector3.Distance(target.position, agent.destination) < 1f)
         {
-            Pursue();
+            playerDamage.TakeDamage(damage);
         }
-        randomNumber = 0;
-    }  
+        StartCoroutine(ResetAttack());
+    }
+
+    IEnumerator ResetAttack()
+    {
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+        agent.speed = walkSpeed;
+        animator.SetBool("Attack", false);
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -353,8 +300,8 @@ public class EnemyBehaviorSight : MonoBehaviour
 
     public void TakeDamage(float damage, Vector3 direction)
     {
-        health -= damage;
         healthBar.SetHealthBarPercentage(health/maxHealth);
+        health -= damage;
         if (health <= 0.0f)
         {
             Die(direction);

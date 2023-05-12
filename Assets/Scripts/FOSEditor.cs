@@ -1,5 +1,7 @@
-using UnityEditor;
 using UnityEngine;
+
+#if UNITY_EDITOR
+using UnityEditor;
 
 [CustomEditor(typeof(EnemySight))]
 public class FOSEditor : Editor
@@ -32,3 +34,5 @@ public class FOSEditor : Editor
         return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
     }
 }
+
+#endif
