@@ -62,8 +62,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6978247740265233280}
-  - component: {fileID: 621031915282880458}
-  - component: {fileID: 5160061045862419139}
   - component: {fileID: 5127794278993834639}
   - component: {fileID: 3779327731582640023}
   - component: {fileID: 8085231803712771112}
@@ -91,43 +89,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &621031915282880458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7248152345524174159}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e6310f9394329e4c87cd952589e6ae7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletSpawnPoint: {fileID: 0}
-  bulletPrefab: {fileID: 0}
-  damage: 10
-  range: 100
-  muzzleFlash: {fileID: 0}
-  maxAmmo: 10
-  reloadTime: 2
-  shootCooldown: 0.5
-  currentAmmo: 0
-  ammoText: {fileID: 0}
---- !u!114 &5160061045862419139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7248152345524174159}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58707dcd48429734099e0431b499cddb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gun: {fileID: 621031915282880458}
-  muzzleFlash: {fileID: 0}
-  sensitivity: 2
 --- !u!82 &5127794278993834639
 AudioSource:
   m_ObjectHideFlags: 0
