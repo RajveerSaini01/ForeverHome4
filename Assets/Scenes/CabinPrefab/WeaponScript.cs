@@ -6,29 +6,28 @@ using TMPro;
 
 public class WeaponScript : MonoBehaviour
 {
-    public GameObject bulletPrefab;
+    [Header("Weapon Stats")]
     public float damage = 50;
     public float fireRate = 300; // RPM
     public float barrelVelocity = 500f; // m/s
     public int maxAmmo = 10;
     public int ammo = 10;
     public float reloadTime = 0.75f;
-    
-    public AudioSource fireClip;
-    
-    private GameObject player;
-    private Transform holsterTransform;
-    private Holster PlayerHolsterScript;
 
-    private bool equipped;
-    private bool active;
-    private bool reloading;
-    private bool chambered = true;
-
-    private GameObject canvas;
-    public TextMeshProUGUI ammoText;
+    [Header("Weapon Properties")]
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private GameObject player;
+    [SerializeField] private Transform holsterTransform;
+    [SerializeField] private Holster PlayerHolsterScript;
+    [SerializeField] private AudioSource fireClip;
+    [SerializeField] private GameObject canvas;
+    [SerializeField] private TextMeshProUGUI ammoText;
+    private Rigidbody wepPhysics;
     
-    Rigidbody wepPhysics;
+    [Header("Weapon States")]
+    [SerializeField] private bool equipped;
+    [SerializeField] private bool reloading;
+    [SerializeField] private bool chambered = true;
     
     void Awake()
     {
@@ -41,11 +40,6 @@ public class WeaponScript : MonoBehaviour
         
         LevelGeneration.OnReady += OnMapReady;
         InteractHandler.OnInteract += OnInteract;
-
-        
-
-        
-        
         
         // This Try-Catch exists because we need it to defer searching for a Player when they get placed by the map
         // But they still need to check when they get instantiated by player (via dropping)
@@ -55,19 +49,31 @@ public class WeaponScript : MonoBehaviour
             PlayerHolsterScript = player.GetComponent<Holster>();
             //holsterTransform = player.transform.Find("Main Camera").transform.Find("WeaponTransform");
             holsterTransform = Camera.main.transform.Find("WeaponTransform");
-            
-            
+            //equipped = true;
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
             throw;
         }
-        
+    }
+
+    public void SetValues(float dmg, float fr, float bv, int mAmmo, int cAmmo, float rt, bool eq)
+    {
+        canvas.SetActive(true);
+        damage = dmg;
+        fireRate = fr;
+        barrelVelocity = bv;
+        maxAmmo = mAmmo;
+        ammo = cAmmo;
+        reloadTime = rt;
+        equipped = eq;
+        ammoText.text = "Ammo: " + ammo;
     }
 
     private void OnMapReady()
     {
+        LevelGeneration.OnReady += OnMapReady;
         player = GameObject.FindGameObjectWithTag("Player");
         PlayerHolsterScript = player.GetComponent<Holster>();
         holsterTransform = Camera.main.transform.Find("WeaponTransform");
@@ -77,9 +83,8 @@ public class WeaponScript : MonoBehaviour
     {
         if (gameObject.name == nm && !equipped)
         {
-            //Debug.Log("Picking up " + nm);
+            Debug.Log("Picking up " + nm);
             equipped = true;
-            active = true;
             canvas.SetActive(true);
             transform.SetParent(holsterTransform, true);
             transform.position = transform.parent.position;
@@ -96,7 +101,6 @@ public class WeaponScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.G) && equipped)
         {
             equipped = false;
-            active = false;
             canvas.SetActive(false);
             transform.SetParent(null);
             wepPhysics.useGravity = true;
@@ -108,7 +112,7 @@ public class WeaponScript : MonoBehaviour
         
         if (Input.GetButtonDown("Fire1"))
         {
-            if (equipped && active && chambered && ammo > 0 && !reloading)
+            if (equipped && chambered && ammo > 0 && !reloading)
             {
                 Shoot();
             }
@@ -139,6 +143,25 @@ public class WeaponScript : MonoBehaviour
         }
         ammoText.text = "Ammo: " + ammo;
         StartCoroutine(nameof(RechamberShot)); // As to slow spam fire
+    }
+
+    private void OnEnable()
+    {
+       
+        if (!chambered)
+        {
+            StartCoroutine(nameof(RechamberShot));
+        }
+        if (reloading)
+        {
+            StartCoroutine(nameof(Reload));
+        }
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine(nameof(RechamberShot));
+        StopCoroutine(nameof(Reload));
     }
 
     IEnumerator Reload()

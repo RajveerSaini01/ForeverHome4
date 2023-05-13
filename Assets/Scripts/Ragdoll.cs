@@ -36,7 +36,7 @@ public class Ragdoll : MonoBehaviour
         //animator.GetBoneTransform(HumanBodyBones.Hips).GetComponent<Rigidbody>().AddForce(force, ForceMode.Impulse);
         foreach (var rigidBody in rigidBodies)
         {
-            rigidBody.AddForce(force, ForceMode.Impulse);
+            //rigidBody.AddForce(force, ForceMode.Impulse);
         }
     }
 

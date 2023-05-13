@@ -36,10 +36,17 @@ public class bullet : MonoBehaviour
                 
                 //other.GetComponent<Hitbox>().OnRaycastHit(damage, -collision.GetContact(0).normal );
                 //Debug.DrawRay(collision.GetContact(0).point, -collision.GetContact(0).normal, Color.red, 25f);
-                //
+                ParticleSystem p = GetComponent<ParticleSystem>();
+                p.Play();
+                
             }
-        
-            Destroy(gameObject);
         }
+        StartCoroutine(nameof(Explode));
+    }
+
+    IEnumerator Explode()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
     }
 }

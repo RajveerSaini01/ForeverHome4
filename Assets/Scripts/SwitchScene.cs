@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,8 +17,14 @@ public class SwitchScene : MonoBehaviour
     {
         if (caller == gameObject.name)
         {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Holster>().UploadToScriptable();
             SceneManager.LoadScene("PsychoWorld");
         }
+    }
+
+    private void OnDestroy()
+    {
+        InteractHandler.OnInteract -= OnInteract;
     }
     /*
     void Update()
