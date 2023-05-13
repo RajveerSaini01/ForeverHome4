@@ -17,8 +17,8 @@ public class WeaponScript : MonoBehaviour
  
     public AudioSource fireClip;
     
-    [SerializeField] private GameObject player;
-    [SerializeField] private Transform holsterTransform;
+    private GameObject player;
+    private Transform holsterTransform;
     private Holster PlayerHolsterScript;
 
     public bool equipped;
@@ -94,6 +94,39 @@ public class WeaponScript : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.G) && equipped)
+        {
+            GameObject dropped = Instantiate(gameObject, transform.position, transform.rotation);
+            dropped.name = name;
+            dropped.GetComponent<WeaponScript>().equipped = false;
+
+            Rigidbody wepPhysics = dropped.GetComponent<Rigidbody>();
+            wepPhysics.useGravity = true;
+            wepPhysics.isKinematic = false;
+            wepPhysics.AddForce(2f * Camera.main.transform.forward.normalized, ForceMode.Impulse);
+
+            // Store the index of the active weapon
+            int activeWeaponIndex = PlayerHolsterScript.GetHolster().IndexOf(PlayerHolsterScript.activeWeapon);
+
+            // Remove the weapon from the holster
+            PlayerHolsterScript.RemoveWeaponFromHolster(PlayerHolsterScript.activeWeapon);
+
+            // If the holster is not empty, set the new active weapon
+            if (PlayerHolsterScript.GetHolsterSize() > 0)
+            {
+                activeWeaponIndex = activeWeaponIndex % PlayerHolsterScript.GetHolsterSize(); // Wrap-around index if necessary
+                PlayerHolsterScript.SetActiveWeapon(PlayerHolsterScript.GetHolster()[activeWeaponIndex]);
+            }
+            else
+            {
+                // If the holster is empty, there is no active weapon
+                PlayerHolsterScript.SetActiveWeapon(null);
+            }
+
+            Destroy(gameObject);
+        }
+        
+        
         if (Input.GetButtonDown("Fire1"))
         {
             if (equipped && chambered && ammo > 0 && !reloading)
@@ -161,6 +194,21 @@ public class WeaponScript : MonoBehaviour
     
     private void OnDestroy()
     {
+        if (equipped)
+        {
+            if (PlayerHolsterScript.GetHolsterSize() > 1)
+            {
+                Debug.Log($"removing: {PlayerHolsterScript.activeWeapon.weaponObject.name}");
+                if (PlayerHolsterScript.activeWeapon != null)
+                {
+                    PlayerHolsterScript.RemoveWeaponFromHolster(PlayerHolsterScript.activeWeapon);
+                }
+            }
+            else
+            {
+                PlayerHolsterScript.ClearHolster();
+            }
+        }
         LevelGeneration.OnReady -= OnMapReady;
         InteractHandler.OnInteract -= OnInteract;
     }

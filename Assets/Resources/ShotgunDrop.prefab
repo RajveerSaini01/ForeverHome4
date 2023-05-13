@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4458025279644353285}
-  m_Layer: 12
+  m_Layer: 10
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3546105165340802418}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0050000004, y: 0.364, z: 1.199}
+  m_LocalPosition: {x: 0.0050000004, y: 0.504, z: 3.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 4519377468839996523}
   - component: {fileID: 5252640061294445754}
   - component: {fileID: 2619182682180922321}
-  m_Layer: 12
+  m_Layer: 10
   m_Name: Ammo (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 4640515812559560913}
   - component: {fileID: 90952513333851160}
   - component: {fileID: 5422410581563130016}
-  m_Layer: 12
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,8 +285,8 @@ GameObject:
   - component: {fileID: 3602953221860787245}
   - component: {fileID: 4843262283972226418}
   - component: {fileID: 6855858406736657083}
-  m_Layer: 12
-  m_Name: DeagleDrop
+  m_Layer: 10
+  m_Name: ShotgunDrop
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -316,7 +316,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6332722184353985484}
-  m_Mesh: {fileID: -7182689631186222527, guid: 8f9696fb6017be144a307b6586855ac0, type: 3}
+  m_Mesh: {fileID: 3744501094556469539, guid: f62f7dc06bd890d4aab43b8fd635fe02, type: 3}
 --- !u!23 &8524689576344261678
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -337,7 +337,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7c16b6e19b642c247ba765631635ff9e, type: 2}
+  - {fileID: 2100000, guid: 71702e14db22c3740a8e73971bfe655e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -380,7 +380,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: -7182689631186222527, guid: 8f9696fb6017be144a307b6586855ac0, type: 3}
+  m_Mesh: {fileID: 3744501094556469539, guid: f62f7dc06bd890d4aab43b8fd635fe02, type: 3}
 --- !u!54 &3602953221860787245
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -421,11 +421,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6494797111033276777, guid: 11ab832e1f199544eb7299c2ec9ff026, type: 3}
-  damage: 34
-  fireRate: 200
-  barrelVelocity: 450
-  maxAmmo: 8
-  ammo: 8
+  damage: 50
+  fireRate: 300
+  barrelVelocity: 500
+  maxAmmo: 10
+  ammo: 10
   reloadTime: 0.75
   fireClip: {fileID: 0}
   player: {fileID: 0}

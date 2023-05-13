@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7317844580733644793}
   - component: {fileID: 3555392544987272317}
   - component: {fileID: 4600405452829542352}
-  m_Layer: 12
+  m_Layer: 10
   m_Name: SniperDrop
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 4258611524402518682}
   - component: {fileID: 449818172596631368}
   - component: {fileID: 5893081480423907211}
-  m_Layer: 12
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -371,7 +371,7 @@ GameObject:
   - component: {fileID: 7730113827984826038}
   - component: {fileID: 1692379832006875522}
   - component: {fileID: 5429142783058508843}
-  m_Layer: 12
+  m_Layer: 10
   m_Name: Ammo (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -506,7 +506,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 685899045596321558}
-  m_Layer: 12
+  m_Layer: 10
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

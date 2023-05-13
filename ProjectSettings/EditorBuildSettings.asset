@@ -14,9 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: a5e3c97e34b4d460fb33dd995d916974
-  - enabled: 1
-    path: Assets/Scenes/Home.unity
-    guid: 7334b801cd9b54ee89e7ff1a15c7188a
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Asset Dev Sandbox/PsychoWorld Package/Scenes/HomeWorld.unity
     guid: 907ea50d1fa058f4ab22af396d23cb5e
