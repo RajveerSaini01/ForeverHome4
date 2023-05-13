@@ -7,22 +7,39 @@ public class bullet : MonoBehaviour
 {
     public float damage;
     private Rigidbody rb;
-    void Start()
+    private Vector3 spawnPos;
+
+    private void Awake()
     {
+        spawnPos = Camera.main.transform.forward;
         rb = gameObject.GetComponent<Rigidbody>();
+    }
+
+    private void Start()
+    {
         //rb.AddForce(50f * Camera.main.transform.forward, ForceMode.Force);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collided: " + collision.collider.gameObject.name);
-        rb.isKinematic = true;
+        GameObject other = collision.collider.gameObject;
 
-        if (collision.collider.gameObject.CompareTag("Enemy"))
+        if (!other.CompareTag("Bullet"))
         {
-            collision.collider.gameObject.GetComponent<Hitbox>().OnRaycastHit(damage, -collision.contacts[0].normal);
-        }
+            rb.isKinematic = true;
+
+            if (other.CompareTag("Enemy"))
+            {
+                Debug.Log("Collided: " + other.name);
+                
+                other.GetComponent<Hitbox>().OnRaycastHit(damage, spawnPos);
+                
+                //other.GetComponent<Hitbox>().OnRaycastHit(damage, -collision.GetContact(0).normal );
+                //Debug.DrawRay(collision.GetContact(0).point, -collision.GetContact(0).normal, Color.red, 25f);
+                //
+            }
         
-        Destroy(gameObject);
+            Destroy(gameObject);
+        }
     }
 }

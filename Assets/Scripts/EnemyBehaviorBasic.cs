@@ -31,7 +31,7 @@ public class EnemyBehaviorSight : MonoBehaviour
     private EnemySight enemySight;
     private Vector3 lastKnownPosition;
 
-    private float dieForce = 5f;
+    private float dieForce = 1f;
 
     Animator animator; 
     int randomNumber = 0;
@@ -106,12 +106,13 @@ public class EnemyBehaviorSight : MonoBehaviour
                     agent.destination = target.position;
                     agent.speed = runSpeed;
                     timeElapsed = 0f;
-                }else if ((Vector3.Distance(target.position, agent.destination) < 1f || timeElapsed >= 1f) && PlayerInsideVision() && (Time.time - lastMeleeAttackTime > meleeAttackCooldown))
-                {
-                    agent.speed = 0;
-                    MeleeAttack();
-                    lastMeleeAttackTime = Time.time;
                 }
+                // else if ((Vector3.Distance(target.position, agent.destination) < 1f || timeElapsed >= 1f) && PlayerInsideVision() && (Time.time - lastMeleeAttackTime > meleeAttackCooldown))
+                // {
+                //     agent.speed = 0;
+                //     MeleeAttack();
+                //     lastMeleeAttackTime = Time.time;
+                // }
                 
                 break;
 
@@ -120,6 +121,9 @@ public class EnemyBehaviorSight : MonoBehaviour
                 {
                     agent.destination = GetNewSearchDestination();
                 }
+                break;
+            
+            case "Dying":
                 break;
         }
     }
@@ -130,8 +134,10 @@ public class EnemyBehaviorSight : MonoBehaviour
         agent.speed = walkSpeed;
         animator.SetFloat("Speed", agent.velocity.magnitude);
         yield return new WaitUntil(PlayerInsideVision);
-
-        StartCoroutine(nameof(Pursue));
+        if (state != "Dying")
+        {
+            StartCoroutine(nameof(Pursue));
+        }
     }
 
     private IEnumerator Pursue()
@@ -139,9 +145,13 @@ public class EnemyBehaviorSight : MonoBehaviour
         state = "Pursuing";
         agent.speed = runSpeed;
         animator.SetFloat("Speed", agent.velocity.magnitude);
-        yield return new WaitUntil(PlayerOutsideVision); 
-        lastKnownPosition = target.position;
-        StartCoroutine(nameof(Search));
+        yield return new WaitUntil(PlayerOutsideVision);
+
+        if (state != "Dying")
+        {
+            lastKnownPosition = target.position;
+            StartCoroutine(nameof(Search));
+        }
     }
        private IEnumerator Search()
     {
@@ -298,21 +308,23 @@ public class EnemyBehaviorSight : MonoBehaviour
         panicTimer = 0f;
     }
 
-    public void TakeDamage(float damage, Vector3 direction)
+    public void TakeDamage(float dmg, Vector3 direction)
     {
+        health -= dmg;
         healthBar.SetHealthBarPercentage(health/maxHealth);
-        health -= damage;
-        if (health <= 0.0f)
+        if (health <= 0f)
         {
             Die(direction);
         }
     }
-    void Die(Vector3 direction)
+    private void Die(Vector3 direction)
     {
+        state = "Dying";
+        StopAllCoroutines();
         ragdoll.ActivateRagdoll();
-        direction.y = 1;
+        // direction.y = 1;
         ragdoll.ApplyForce(direction * dieForce);
         healthBar.gameObject.SetActive(false);
-        Destroy(gameObject, 12f);
+        Destroy(gameObject, 5f);
     }
 }

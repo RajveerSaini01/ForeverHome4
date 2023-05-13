@@ -26,6 +26,11 @@ public class HolsterData : ScriptableObject
     }
     private void OnDisable()
     {
+        //Sanity check #2
         Debug.Log("Holster Scriptable Object DISABLED");
+        if (holster.Count == 0)
+        {
+            activeWeapon = null;
+        }
     }
 }

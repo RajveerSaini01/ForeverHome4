@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7317844580733644793}
   - component: {fileID: 3555392544987272317}
   - component: {fileID: 4600405452829542352}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SniperDrop
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -151,12 +151,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6494797111033276777, guid: 11ab832e1f199544eb7299c2ec9ff026, type: 3}
-  damage: 50
-  fireRate: 300
-  barrelVelocity: 500
-  maxAmmo: 10
-  ammo: 10
-  reloadTime: 0.75
+  damage: 100
+  fireRate: 50
+  barrelVelocity: 800
+  maxAmmo: 12
+  ammo: 12
+  reloadTime: 1.25
   fireClip: {fileID: 0}
   player: {fileID: 0}
   holsterTransform: {fileID: 0}
@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 4258611524402518682}
   - component: {fileID: 449818172596631368}
   - component: {fileID: 5893081480423907211}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -371,7 +371,7 @@ GameObject:
   - component: {fileID: 7730113827984826038}
   - component: {fileID: 1692379832006875522}
   - component: {fileID: 5429142783058508843}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Ammo (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -506,7 +506,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 685899045596321558}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

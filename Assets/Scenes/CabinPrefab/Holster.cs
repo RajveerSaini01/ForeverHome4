@@ -67,10 +67,19 @@ public class Holster : MonoBehaviour
                 }
             }
             
-            holster.Remove(activeWeapon);
-            Destroy(activeWeapon.weaponObject);
-
+            holster.Remove(holster[holster.IndexOf(activeWeapon)]);
+            if (activeWeapon != null)
+            {
+                Destroy(activeWeapon.weaponObject);
+            }
+            
+            // Sanity wipe
             activeWeapon = holster.Count > 0 ? holster[0] : null;
+            if (holster.Count == 0)
+            {
+                holsterData.holster.Clear();
+                holsterData.activeWeapon = null;
+            }
         }
         
         if (holster.Count > 0)

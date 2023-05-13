@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4458025279644353285}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 4519377468839996523}
   - component: {fileID: 5252640061294445754}
   - component: {fileID: 2619182682180922321}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Ammo (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 4640515812559560913}
   - component: {fileID: 90952513333851160}
   - component: {fileID: 5422410581563130016}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ GameObject:
   - component: {fileID: 3602953221860787245}
   - component: {fileID: 4843262283972226418}
   - component: {fileID: 6855858406736657083}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ShotgunDrop
   m_TagString: Interactable
   m_Icon: {fileID: 0}
