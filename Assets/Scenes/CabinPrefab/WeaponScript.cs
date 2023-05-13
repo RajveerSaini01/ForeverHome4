@@ -14,39 +14,39 @@ public class WeaponScript : MonoBehaviour
     public int ammo = 10;
     public float reloadTime = 0.75f;
     
- 
     public AudioSource fireClip;
     
     private GameObject player;
     private Transform holsterTransform;
     private Holster PlayerHolsterScript;
 
-    public bool equipped;
+    private bool equipped;
+    private bool active;
     private bool reloading;
     private bool chambered = true;
 
     private GameObject canvas;
     public TextMeshProUGUI ammoText;
     
+    Rigidbody wepPhysics;
+    
     void Awake()
     {
-        LevelGeneration.OnReady += OnMapReady;
+        wepPhysics = GetComponent<Rigidbody>();
         canvas = transform.Find("Canvas").gameObject;
+        canvas.SetActive(false);
+
         ammoText.text = "Ammo: " + ammo;
         fireClip = GetComponent<AudioSource>();
-        InteractHandler.OnInteract += OnInteract;
         
-        // InteractHandler.OnInteract += OnInteract;
-        //
-        // player = GameObject.FindGameObjectWithTag("Player");
-        // PlayerHolsterScript = player.GetComponent<Holster>();
-        // //holsterTransform = player.transform.Find("Main Camera").transform.Find("WeaponTransform");
-        // holsterTransform = Camera.main.transform.Find("WeaponTransform");
-        //
-        // canvas = transform.Find("Canvas").gameObject;
-        // ammoText.text = "Ammo: " + ammo;
-        // fireClip = GetComponent<AudioSource>();
+        LevelGeneration.OnReady += OnMapReady;
+        InteractHandler.OnInteract += OnInteract;
 
+        
+
+        
+        
+        
         // This Try-Catch exists because we need it to defer searching for a Player when they get placed by the map
         // But they still need to check when they get instantiated by player (via dropping)
         try
@@ -55,6 +55,8 @@ public class WeaponScript : MonoBehaviour
             PlayerHolsterScript = player.GetComponent<Holster>();
             //holsterTransform = player.transform.Find("Main Camera").transform.Find("WeaponTransform");
             holsterTransform = Camera.main.transform.Find("WeaponTransform");
+            
+            
         }
         catch (Exception e)
         {
@@ -68,7 +70,6 @@ public class WeaponScript : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         PlayerHolsterScript = player.GetComponent<Holster>();
-        //holsterTransform = player.transform.Find("Main Camera").transform.Find("WeaponTransform");
         holsterTransform = Camera.main.transform.Find("WeaponTransform");
     }
 
@@ -77,18 +78,16 @@ public class WeaponScript : MonoBehaviour
         if (gameObject.name == nm && !equipped)
         {
             //Debug.Log("Picking up " + nm);
-            GameObject equippable = Instantiate(gameObject, holsterTransform.position, holsterTransform.rotation, holsterTransform);
-            equippable.name = name;
-            equippable.GetComponent<WeaponScript>().equipped = true;
-            
-            Rigidbody wepPhysics = equippable.GetComponent<Rigidbody>();
+            equipped = true;
+            active = true;
+            canvas.SetActive(true);
+            transform.SetParent(holsterTransform, true);
+            transform.position = transform.parent.position;
+            transform.rotation = transform.parent.rotation;
             wepPhysics.useGravity = false;
             wepPhysics.isKinematic = true;
             
-            Weapon holstered = new Weapon(equippable, ammo);
-            PlayerHolsterScript.AddWeaponToHolster(holstered);
-            PlayerHolsterScript.SetActiveWeapon(holstered);
-            Destroy(gameObject);
+            PlayerHolsterScript.AddWeaponToHolster(gameObject);
         }
     }
 
@@ -96,40 +95,20 @@ public class WeaponScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.G) && equipped)
         {
-            GameObject dropped = Instantiate(gameObject, transform.position, transform.rotation);
-            dropped.name = name;
-            dropped.GetComponent<WeaponScript>().equipped = false;
-
-            Rigidbody wepPhysics = dropped.GetComponent<Rigidbody>();
+            equipped = false;
+            active = false;
+            canvas.SetActive(false);
+            transform.SetParent(null);
             wepPhysics.useGravity = true;
             wepPhysics.isKinematic = false;
             wepPhysics.AddForce(2f * Camera.main.transform.forward.normalized, ForceMode.Impulse);
-
-            // Store the index of the active weapon
-            int activeWeaponIndex = PlayerHolsterScript.GetHolster().IndexOf(PlayerHolsterScript.activeWeapon);
-
-            // Remove the weapon from the holster
-            PlayerHolsterScript.RemoveWeaponFromHolster(PlayerHolsterScript.activeWeapon);
-
-            // If the holster is not empty, set the new active weapon
-            if (PlayerHolsterScript.GetHolsterSize() > 0)
-            {
-                activeWeaponIndex = activeWeaponIndex % PlayerHolsterScript.GetHolsterSize(); // Wrap-around index if necessary
-                PlayerHolsterScript.SetActiveWeapon(PlayerHolsterScript.GetHolster()[activeWeaponIndex]);
-            }
-            else
-            {
-                // If the holster is empty, there is no active weapon
-                PlayerHolsterScript.SetActiveWeapon(null);
-            }
-
-            Destroy(gameObject);
+            
+            PlayerHolsterScript.RemoveWeaponFromHolster(gameObject);
         }
-        
         
         if (Input.GetButtonDown("Fire1"))
         {
-            if (equipped && chambered && ammo > 0 && !reloading)
+            if (equipped && active && chambered && ammo > 0 && !reloading)
             {
                 Shoot();
             }
@@ -140,12 +119,6 @@ public class WeaponScript : MonoBehaviour
             {
                 StartCoroutine(nameof(Reload));
             }
-        }
-
-        // This shouldn't be in Update; too expensive. Put inside OnInteract as modifer post-instantiation
-        if (canvas != null)
-        {
-            canvas.SetActive(equipped);
         }
     }
 
@@ -194,21 +167,6 @@ public class WeaponScript : MonoBehaviour
     
     private void OnDestroy()
     {
-        if (equipped)
-        {
-            if (PlayerHolsterScript.GetHolsterSize() > 1)
-            {
-                Debug.Log($"removing: {PlayerHolsterScript.activeWeapon.weaponObject.name}");
-                if (PlayerHolsterScript.activeWeapon != null)
-                {
-                    PlayerHolsterScript.RemoveWeaponFromHolster(PlayerHolsterScript.activeWeapon);
-                }
-            }
-            else
-            {
-                PlayerHolsterScript.ClearHolster();
-            }
-        }
         LevelGeneration.OnReady -= OnMapReady;
         InteractHandler.OnInteract -= OnInteract;
     }

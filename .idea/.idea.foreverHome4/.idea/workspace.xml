@@ -8,22 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.foreverHome4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.foreverHome4/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/Holster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/Holster.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/WeaponScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/WeaponScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/bullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponPrefabs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponPrefabs/DeagleDrop.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponPrefabs/DeagleDrop.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponPrefabs/RevolverDrop.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponPrefabs/RevolverDrop.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponPrefabs/ShotgunDrop.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponPrefabs/ShotgunDrop.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponPrefabs/SniperDrop.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponPrefabs/SniperDrop.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +34,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -60,6 +45,24 @@
     ]
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="D:\Production Software\Unity\2022.2.3f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;D:\Production Software\ForeverHome2\foreverHome4&quot; -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="D:\Production Software\ForeverHome2\foreverHome4" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="D:\Production Software\Unity\2022.2.3f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;D:\Production Software\ForeverHome2\foreverHome4&quot; -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="D:\Production Software\ForeverHome2\foreverHome4" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
