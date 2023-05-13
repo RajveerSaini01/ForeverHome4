@@ -6,12 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="fb6b4799-805e-4369-a6f9-bedbad7cfdfa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.foreverHome4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.foreverHome4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/Holster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/Holster.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/WeaponScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/WeaponScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/bullet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/bullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ragdoll.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ragdoll.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SwitchScene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SwitchScene.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Interactable Assets (Ray's)/Scripts/InteractHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Interactable Assets (Ray's)/Scripts/InteractHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FirstPersonController.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FirstPersonController.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/TestCabinScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/TestCabinScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/blood.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/blood.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Electronic Highway Sign SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Electronic Highway Sign SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Oswald Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Oswald Bold SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,6 +56,14 @@
   }
 }]]></component>
   <component name="RunManager">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../Builds/Build 3 - WR Patch 1\ForeverHome.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="D:\Production Software\ForeverHome2\Builds\Build 3 - WR Patch 1" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="D:\Production Software\Unity\2022.2.3f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;D:\Production Software\ForeverHome2\foreverHome4&quot; -debugCodeOptimization" />

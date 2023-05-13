@@ -33,4 +33,8 @@ public class WindowController : MonoBehaviour
             }
         }
     }
+    private void OnDestroy()
+    {
+        InteractHandler.OnInteract -= OnInteract;
+    }
 }

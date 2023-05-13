@@ -64,4 +64,8 @@ public class DoorController : MonoBehaviour
         scriptHolder.rotation = Quaternion.Euler(opening ? openAngle : closeAngle);
         yield return null;
     }
+    private void OnDestroy()
+    {
+        InteractHandler.OnInteract -= OnInteract;
+    }
 }

@@ -47,5 +47,10 @@ public class CabinetController : MonoBehaviour
         leftDoor.rotation = Quaternion.Euler(opening ? leftOpenAngle : closeAngle);
         yield return null;
     }
+
+    private void OnDestroy()
+    {
+        InteractHandler.OnInteract -= OnInteract;
+    }
 }
 

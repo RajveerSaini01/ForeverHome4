@@ -55,4 +55,8 @@ public class FaucetController : MonoBehaviour
         rightKnob.rotation = Quaternion.Euler(opening ? -openAngle : closeAngle);
         yield return null;
     }
+    private void OnDestroy()
+    {
+        InteractHandler.OnInteract -= OnInteract;
+    }
 }
