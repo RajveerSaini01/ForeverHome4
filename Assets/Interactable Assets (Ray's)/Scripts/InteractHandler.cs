@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class InteractHandler : MonoBehaviour
 {
-    public static event Action<string> OnInteract;
     private Camera cam;
 
     [SerializeField] private GameObject target;
@@ -14,12 +13,13 @@ public class InteractHandler : MonoBehaviour
     [SerializeField] private GameObject hoverCanvas;
     [SerializeField] private TextMeshProUGUI hoverText;
     
-    void Start()
+    private void Start()
     {
         cam = Camera.main;
+        hoverCanvas.SetActive(true);
     }
 
-    void Update()
+    private void Update()
     {
 
         RaycastHit hit;

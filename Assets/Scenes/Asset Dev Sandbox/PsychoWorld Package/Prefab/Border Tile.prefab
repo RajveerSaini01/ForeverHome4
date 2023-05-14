@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8829549807075289011}
   - component: {fileID: 4720734993871044867}
   - component: {fileID: -3173378549891945208}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Border Tile
   m_TagString: Floor
   m_Icon: {fileID: 0}

@@ -7,48 +7,27 @@
     <list default="true" id="fb6b4799-805e-4369-a6f9-bedbad7cfdfa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.foreverHome4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.foreverHome4/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Enemies/Enemy Test.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Enemy Test.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FirstPersonController.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FirstPersonController.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/GameManager.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/GameManager.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/GunAnims.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/GunAnims.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/Holster.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/Holster.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/HolsterData.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/HolsterData.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/HolsterData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/HolsterData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/Mushroom.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/Mushroom.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/Shoot.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/Shoot.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/SniperDrop.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/SniperDrop.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/TestCabin.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/TestCabin.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/TestCabinScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/TestCabinScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/WeaponScript.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/WeaponScript.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/blood.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/blood.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/bullet.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/bullet.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/bullet.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/bullet.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/bullet.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/bullet.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/bulletTrail.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/bulletTrail.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Damage.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Damage.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyBehaviorBasic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyBehaviorBasic.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyMovement.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyMovement.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemySight.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemySight.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Imported Asset Collection/Trees/Tree9_2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Imported Asset Collection/Trees/Tree9_2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Imported Asset Collection/Trees/Tree9_3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Imported Asset Collection/Trees/Tree9_3.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Imported Asset Collection/Trees/Tree9_4.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Imported Asset Collection/Trees/Tree9_4.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Imported Asset Collection/Trees/Tree9_5.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Imported Asset Collection/Trees/Tree9_5.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Interactable Assets (Ray's)/Scripts/InteractHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Interactable Assets (Ray's)/Scripts/InteractHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PolishedWeapons/FirstPersonController.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PolishedWeapons/FirstPersonController.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PolishedWeapons/Scripts/WeaponScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PolishedWeapons/Scripts/WeaponScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PolishedWeapons/TestCabin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PolishedWeapons/TestCabin.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PolishedWeapons/TestEnemyScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PolishedWeapons/TestEnemyScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Asset Dev Sandbox/PsychoWorld Package/Scripts/BorderGeneration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Asset Dev Sandbox/PsychoWorld Package/Scripts/BorderGeneration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Asset Dev Sandbox/PsychoWorld Package/Scripts/CenterGeneration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Asset Dev Sandbox/PsychoWorld Package/Scripts/CenterGeneration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Asset Dev Sandbox/PsychoWorld Package/Scripts/FlatGeneratiion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Asset Dev Sandbox/PsychoWorld Package/Scripts/FlatGeneratiion.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Asset Dev Sandbox/PsychoWorld Package/Scripts/LevelGeneration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Asset Dev Sandbox/PsychoWorld Package/Scripts/LevelGeneration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Asset Dev Sandbox/PsychoWorld Package/Scripts/TileGeneration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Asset Dev Sandbox/PsychoWorld Package/Scripts/TileGeneration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIHealthBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UIHealthBar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Electronic Highway Sign SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Electronic Highway Sign SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Oswald Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Oswald Bold SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
@@ -63,6 +42,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/PolishedWeapons/TestSceneManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Timer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ai.navigation@1.1.1/Editor/NavigationOverlay.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ai.navigation@1.1.1/Runtime/NavMeshSurface.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -91,7 +71,7 @@
 }]]></component>
   <component name="RunManager">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/../Builds/Build 3 - WR Patch 1\ForeverHome.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../Builds/Build 4 - ER - Patch 1\ForeverHome.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="D:\Production Software\ForeverHome2\Builds\Build 3 - WR Patch 1" />
       <option name="PASS_PARENT_ENVS" value="1" />

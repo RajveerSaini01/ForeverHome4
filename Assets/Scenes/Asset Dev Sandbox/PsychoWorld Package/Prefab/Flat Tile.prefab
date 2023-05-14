@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8829549807075289011}
   - component: {fileID: 7800136852556963437}
   - component: {fileID: 485585297804050287}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Flat Tile
   m_TagString: Floor
   m_Icon: {fileID: 0}

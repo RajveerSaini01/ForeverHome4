@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6955151264012123396, guid: 90e122aaa957348419b40a70102ace80, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4974498859849082003, guid: 90e122aaa957348419b40a70102ace80, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.9
@@ -81,8 +85,20 @@ PrefabInstance:
       value: Birch_stump_rotten2_prefab
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 90e122aaa957348419b40a70102ace80, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 90e122aaa957348419b40a70102ace80, type: 3}
       propertyPath: m_TagString
       value: Stump
+      objectReference: {fileID: 0}
+    - target: {fileID: 2730434939621947655, guid: 90e122aaa957348419b40a70102ace80, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3364210953405337423, guid: 90e122aaa957348419b40a70102ace80, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3514155102877473374, guid: 90e122aaa957348419b40a70102ace80, type: 3}
       propertyPath: m_LocalScale.x
@@ -95,6 +111,10 @@ PrefabInstance:
     - target: {fileID: 3514155102877473374, guid: 90e122aaa957348419b40a70102ace80, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274444237877763117, guid: 90e122aaa957348419b40a70102ace80, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8966028194489693683, guid: 90e122aaa957348419b40a70102ace80, type: 3}
       propertyPath: m_LocalScale.x

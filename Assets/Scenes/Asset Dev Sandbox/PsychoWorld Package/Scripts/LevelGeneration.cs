@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -104,31 +105,8 @@ public class LevelGeneration : MonoBehaviour
                 
                 // calculate the tile position based on the X and Z indices
                 Vector3 tilePosition = new Vector3(myPosition.x + xTileIndex * tileWidth, myPosition.y, myPosition.z + zTileIndex * tileDepth);
-                
-                //  0-1 and 5-6
-                if((xTileIndex >= 0 && xTileIndex < borderThickness-1 || xTileIndex > mapWidth-borderThickness && xTileIndex <= mapWidth)
-                   || (zTileIndex >= 0 && zTileIndex < borderThickness-1 || zTileIndex > mapDepth-borderThickness && zTileIndex <= mapDepth)
-                   )
-                {
-                    // Flat (completely flat)
-                    Instantiate (flatPrefab, tilePosition, Quaternion.identity, myTransform);
-                }
-                // 2 and 4
-                else if((xTileIndex == borderThickness-1 || xTileIndex == mapWidth-borderThickness )
-                        || (zTileIndex == borderThickness-1 || zTileIndex == mapDepth-borderThickness))
-                {
-                    // Border (Interpolated height)
-                    Instantiate (borderPrefab, tilePosition, Quaternion.identity, myTransform);
-                }else if (xTileIndex == mapWidth/2 && zTileIndex == mapDepth/2)
-                {
-                    // Center Tile OR Level Tile, depending on whether we are in Psycho or Normal
-                    Instantiate(isHome ? centerPrefab : tilePrefab, tilePosition, Quaternion.identity, myTransform);
-                }
-                else
-                {
-                    // Level (noisemap Assets)
-                    Instantiate (tilePrefab, tilePosition, Quaternion.identity, myTransform);
-                }
+                StartCoroutine(AsyncTileGen( xTileIndex,  zTileIndex,  tilePosition));
+                yield return 0;
             }
         }
         
@@ -151,17 +129,56 @@ public class LevelGeneration : MonoBehaviour
         west = Instantiate(wall, new Vector3(0, 0, (mapDepth-1)*tileDepth/2f), Quaternion.identity);
         west.transform.localScale = new (1,2*levelScale+levelScale,mapDepth*tileDepth-tileDepth);
         west.gameObject.name = "West Wall";
+        
+        yield return new WaitForSeconds(1);
+        
+        NavMeshSurface navMeshSurface = gameObject.GetComponent<NavMeshSurface>();
 
+        // Generate the NavMesh
+        navMeshSurface.BuildNavMesh();
+        
+        yield return new WaitForSeconds(1);
+        
+        
         // Instantiate Player object and water planes
         Vector2 centerPos = new(mapWidth * tileWidth / 2f - (tileWidth / 2f) , mapDepth * tileDepth / 2f - (tileDepth / 2f));
         InstantiateObjectInMap(playerPrefab, centerPos.x, centerPos.y);
         Instantiate(waterPrefab, new Vector3(centerPos.x, waterHeight, centerPos.y), Quaternion.identity).transform.localScale = new Vector3(mapWidth, 1, mapDepth);
         Instantiate(waterSpecularPrefab, new Vector3(centerPos.x, waterHeight, centerPos.y), Quaternion.identity).transform.localScale = new Vector3(mapWidth, 1, mapDepth);
-
-        yield return new WaitForSeconds(1);
+        
         // Broadcast ready state to initialize all the enemies' scripts
         Debug.Log("Invoking Ready State");
         OnReady?.Invoke();
+    }
+
+    private IEnumerator AsyncTileGen(int xTileIndex, int zTileIndex, Vector3 tilePosition)
+    {
+                        
+        //  0-1 and 5-6
+        if((xTileIndex >= 0 && xTileIndex < borderThickness-1 || xTileIndex > mapWidth-borderThickness && xTileIndex <= mapWidth)
+           || (zTileIndex >= 0 && zTileIndex < borderThickness-1 || zTileIndex > mapDepth-borderThickness && zTileIndex <= mapDepth)
+          )
+        {
+            // Flat (completely flat)
+            Instantiate (flatPrefab, tilePosition, Quaternion.identity, myTransform);
+        }
+        // 2 and 4
+        else if((xTileIndex == borderThickness-1 || xTileIndex == mapWidth-borderThickness )
+                || (zTileIndex == borderThickness-1 || zTileIndex == mapDepth-borderThickness))
+        {
+            // Border (Interpolated height)
+            Instantiate (borderPrefab, tilePosition, Quaternion.identity, myTransform);
+        }else if (xTileIndex == mapWidth/2 && zTileIndex == mapDepth/2)
+        {
+            // Center Tile OR Level Tile, depending on whether we are in Psycho or Normal
+            Instantiate(isHome ? centerPrefab : tilePrefab, tilePosition, Quaternion.identity, myTransform);
+        }
+        else
+        {
+            // Level (noisemap Assets)
+            Instantiate (tilePrefab, tilePosition, Quaternion.identity, myTransform);
+        }
+        yield return 0;
     }
     
     private void InstantiateObjectInMap(GameObject prefab, float x, float y)

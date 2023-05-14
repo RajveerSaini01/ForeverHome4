@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 1853057613}
   - component: {fileID: 1853057612}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Canvas (Health Bar)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5291,7 +5291,6 @@ GameObject:
   - component: {fileID: 2633733089283888572}
   - component: {fileID: 7221426665056305881}
   - component: {fileID: 8437442803589337063}
-  - component: {fileID: 5164185419868854966}
   - component: {fileID: 1587967884946608381}
   m_Layer: 0
   m_Name: Enemy Test
@@ -5323,7 +5322,7 @@ Transform:
   - {fileID: 8431272339295852893}
   - {fileID: 1853057611}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &444326145683225438
 Animator:
@@ -5478,19 +5477,6 @@ MonoBehaviour:
   health: 0
   blinkIntensity: 20
   blinkDuration: 1
---- !u!114 &5164185419868854966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9008524480214954276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24638b9d4de89904fa91e500929ccd99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
 --- !u!136 &1587967884946608381
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -104,6 +104,11 @@ public class WeaponScript : MonoBehaviour
 
     private void Update()
     {
+        if (player == null)
+        {
+            return;
+        }
+        
         Debug.DrawRay(transform.position, -transform.forward, Color.red);
         Debug.DrawRay(transform.position, transform.forward, Color.blue);
         
