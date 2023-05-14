@@ -29,7 +29,7 @@ public class Holster : MonoBehaviour
                 
                 Rigidbody wepPhysics = equippable.GetComponent<Rigidbody>();
                 wepPhysics.useGravity = false;
-                wepPhysics.isKinematic = true;
+                wepPhysics.isKinematic = false; // set to true to remove weapon physics on the loading kit
         
                 AddWeaponToHolster(equippable);
             }

@@ -22,13 +22,18 @@ public class WeaponScript : MonoBehaviour
     [SerializeField] private AudioSource fireClip;
     [SerializeField] private GameObject canvas;
     [SerializeField] private TextMeshProUGUI ammoText;
+    
     private Rigidbody wepPhysics;
+    private Camera cam;
     
     [Header("Weapon States")]
     [SerializeField] private bool equipped;
     [SerializeField] private bool reloading;
     [SerializeField] private bool chambered = true;
-    
+    [SerializeField] private bool animating = false;
+
+    //Header("Animations")]
+
     void Awake()
     {
         wepPhysics = GetComponent<Rigidbody>();
@@ -38,23 +43,19 @@ public class WeaponScript : MonoBehaviour
         ammoText.text = "Ammo: " + ammo;
         fireClip = GetComponent<AudioSource>();
         
-        LevelGeneration.OnReady += OnMapReady;
-        InteractHandler.OnInteract += OnInteract;
         
+        
+        LevelGeneration.OnReady += OnMapReady;
+
         // This Try-Catch exists because we need it to defer searching for a Player when they get placed by the map
         // But they still need to check when they get instantiated by player (via dropping)
-        try
+        
+        cam = Camera.main;
+        if (cam != null)
         {
             player = GameObject.FindGameObjectWithTag("Player");
             PlayerHolsterScript = player.GetComponent<Holster>();
-            //holsterTransform = player.transform.Find("Main Camera").transform.Find("WeaponTransform");
-            holsterTransform = Camera.main.transform.Find("WeaponTransform");
-            //equipped = true;
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
+            holsterTransform = cam.transform.Find("WeaponTransform");
         }
     }
 
@@ -73,31 +74,48 @@ public class WeaponScript : MonoBehaviour
 
     private void OnMapReady()
     {
-        LevelGeneration.OnReady += OnMapReady;
-        player = GameObject.FindGameObjectWithTag("Player");
-        PlayerHolsterScript = player.GetComponent<Holster>();
-        holsterTransform = Camera.main.transform.Find("WeaponTransform");
+        LevelGeneration.OnReady -= OnMapReady;
+
+        cam = Camera.main;
+        if (cam != null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            PlayerHolsterScript = player.GetComponent<Holster>();
+            holsterTransform = cam.transform.Find("WeaponTransform");
+        }
     }
 
     private void OnInteract(string nm)
     {
         if (gameObject.name == nm && !equipped)
         {
+            
             Debug.Log("Picking up " + nm);
             equipped = true;
             canvas.SetActive(true);
             transform.SetParent(holsterTransform, true);
-            transform.position = transform.parent.position;
-            transform.rotation = transform.parent.rotation;
+            // transform.position = transform.parent.position;
+            // transform.rotation = transform.parent.rotation;
             wepPhysics.useGravity = false;
-            wepPhysics.isKinematic = true;
-            
+            wepPhysics.isKinematic = false; // set to true to get rid of the floaty gun physics
             PlayerHolsterScript.AddWeaponToHolster(gameObject);
         }
     }
 
     private void Update()
     {
+        Debug.DrawRay(transform.position, -transform.forward, Color.red);
+        Debug.DrawRay(transform.position, transform.forward, Color.blue);
+        
+        // World-Screen Positional Lock
+        Ray camRay = cam.ViewportPointToRay(new Vector3(0.8f,0.4f, 0f), cam.stereoActiveEye);
+        holsterTransform.position = camRay.direction + camRay.origin;
+        Debug.DrawRay(camRay.origin, camRay.direction);
+        
+        // Kinematic Tether
+        KinematicTetherUpdate();
+        
+        
         if (Input.GetKeyDown(KeyCode.G) && equipped)
         {
             equipped = false;
@@ -105,7 +123,7 @@ public class WeaponScript : MonoBehaviour
             transform.SetParent(null);
             wepPhysics.useGravity = true;
             wepPhysics.isKinematic = false;
-            wepPhysics.AddForce(2f * Camera.main.transform.forward.normalized, ForceMode.Impulse);
+            wepPhysics.AddForce(2f * cam.transform.forward.normalized, ForceMode.Impulse);
             
             PlayerHolsterScript.RemoveWeaponFromHolster(gameObject);
         }
@@ -126,12 +144,44 @@ public class WeaponScript : MonoBehaviour
         }
     }
 
+    private void KinematicTetherUpdate()
+    {
+        // If the gun is too far away, slowly move it back to holster (also do rotation)
+        if (equipped && !animating && transform.parent != null)
+        {
+            // Tether Position (Approximate)
+            if (Vector3.Distance(transform.position, transform.parent.position) > 0.1f)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, transform.parent.position, Time.deltaTime * 5f);
+                wepPhysics.drag += 0.05f;
+            }
+            else
+            {
+                transform.position = transform.parent.position;
+                wepPhysics.drag = 0f;
+            }
+            
+            // Tether Rotations (Approximate)
+            if (Quaternion.Angle(transform.rotation, transform.parent.rotation) > 5f)
+            {
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, transform.parent.rotation, Time.deltaTime * 200f);
+                wepPhysics.angularDrag += 0.05f;
+            }
+            else
+            {
+                transform.rotation = transform.parent.rotation;
+                wepPhysics.angularDrag = 0f;
+            }
+        }
+    }
+
     private void Shoot()
     {
         fireClip.Play();
         
         Vector3 barrelPos = transform.Find("Barrel").position;
-        Vector3 direction = Camera.main.transform.forward;
+        //Vector3 direction = cam.transform.forward; //cam maybe null?? idk
+        Vector3 direction = gameObject.transform.forward;
         GameObject bullet = Instantiate(bulletPrefab, barrelPos, Quaternion.Euler(direction));
         bullet.GetComponent<Rigidbody>().AddForce(barrelVelocity * direction, ForceMode.Force);
         bullet.GetComponent<bullet>().damage = damage;
@@ -187,10 +237,9 @@ public class WeaponScript : MonoBehaviour
         yield return new WaitForSeconds(60f/fireRate); // Rounds per minute -> seconds per shot
         chambered = true; // Enable shooting after the cooldown
     }
-    
+
     private void OnDestroy()
     {
         LevelGeneration.OnReady -= OnMapReady;
-        InteractHandler.OnInteract -= OnInteract;
     }
 }

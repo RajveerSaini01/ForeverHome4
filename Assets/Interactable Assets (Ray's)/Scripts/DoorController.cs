@@ -18,7 +18,6 @@ public class DoorController : MonoBehaviour
         barredDoor = Hinge.Find("Barred").gameObject;
         unbarredDoor.SetActive(true);
         barredDoor.SetActive(false);
-        InteractHandler.OnInteract += OnInteract;
     }
 
     void OnInteract(string caller)
@@ -63,9 +62,5 @@ public class DoorController : MonoBehaviour
         }
         scriptHolder.rotation = Quaternion.Euler(opening ? openAngle : closeAngle);
         yield return null;
-    }
-    private void OnDestroy()
-    {
-        InteractHandler.OnInteract -= OnInteract;
     }
 }

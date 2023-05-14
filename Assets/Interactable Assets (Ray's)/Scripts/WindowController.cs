@@ -9,7 +9,6 @@ public class WindowController : MonoBehaviour
     private bool opening;
     private void Awake()
     {
-        InteractHandler.OnInteract += OnInteract;
         clearWindow = transform.Find("Window_Unbarred").gameObject;
         barredWindow = transform.Find("Window_Barred").gameObject;
         clearWindow.SetActive(true);
@@ -18,6 +17,7 @@ public class WindowController : MonoBehaviour
 
     void OnInteract(string caller)
     {
+        Debug.Log($"{gameObject.name} response");
         if (caller == gameObject.name)
         {
             opening = !opening;
@@ -32,9 +32,5 @@ public class WindowController : MonoBehaviour
                 barredWindow.SetActive(false);
             }
         }
-    }
-    private void OnDestroy()
-    {
-        InteractHandler.OnInteract -= OnInteract;
     }
 }

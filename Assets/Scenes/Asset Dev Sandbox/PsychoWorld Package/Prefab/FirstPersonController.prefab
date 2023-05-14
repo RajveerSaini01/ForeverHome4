@@ -80,19 +80,24 @@ MonoBehaviour:
   willSlideOnSlopes: 1
   canZoom: 1
   useStamina: 1
+  canInteract: 1
   sprintKey: 304
   jumpKey: 32
   crouchKey: 306
   zoomKey: 324
+  interactKey: 102
   maxHealth: 100
   timeBeforeRegenStarts: 3
   healthValueIncrement: 1
   healthTimeIncrement: 0.1
+  damageAmount: 10
+  damagingObjectTag: ouch
   maxStamina: 100
   staminaUseMultiplier: 5
   timeBeforeStaminaRegen: 5
   staminaValueIncrement: 2
   staminaTimeIncrement: 0.1
+  Hand: {fileID: 0}
   walkSpeed: 3
   sprintSpeed: 6
   crouchSpeed: 1.5
@@ -115,7 +120,13 @@ MonoBehaviour:
   crouchBobSpeed: 8
   crouchBobAmount: 0.025
   timeToZoom: 0.3
-  zoomFOV: 30
+  zoomFOV: 25
+  interactionRayPoint: {x: 0, y: 0, z: 0}
+  interactionDistance: 0
+  interactionLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  focus: {fileID: 0}
 --- !u!114 &4083502587256849695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,6 +141,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   interactableComponent: {fileID: 0}
+  hoverCanvas: {fileID: 0}
+  hoverText: {fileID: 0}
 --- !u!1 &708703147805277942
 GameObject:
   m_ObjectHideFlags: 0

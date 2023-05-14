@@ -100,7 +100,7 @@ public class FirstPersonController : MonoBehaviour
     
     [Header("Zoom Parameters")]
     [SerializeField] private float timeToZoom = 0.3f;
-    [SerializeField] private float zoomFOV = 30f;
+    [SerializeField] private float zoomFOV = 25f;
     private float defaultFOV;
     private Coroutine zoomRoutine;
     

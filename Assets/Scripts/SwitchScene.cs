@@ -7,11 +7,7 @@ public class SwitchScene : MonoBehaviour
     public string sceneName;
     public float activationDistance = 2f;
     public Camera playerCamera;
-
-    void Awake()
-    {
-        InteractHandler.OnInteract += OnInteract;
-    }
+    
 
     void OnInteract(string caller)
     {
@@ -21,11 +17,7 @@ public class SwitchScene : MonoBehaviour
             SceneManager.LoadScene("PsychoWorld");
         }
     }
-
-    private void OnDestroy()
-    {
-        InteractHandler.OnInteract -= OnInteract;
-    }
+    
     /*
     void Update()
     {

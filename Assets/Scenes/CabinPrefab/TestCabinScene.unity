@@ -179,50 +179,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1312105855375032388, guid: 4a6d8c239d9abcc4b8355d2761744ab3, type: 3}
-      propertyPath: m_VerticalAlignment
-      value: 512
-      objectReference: {fileID: 0}
-    - target: {fileID: 1312105855375032388, guid: 4a6d8c239d9abcc4b8355d2761744ab3, type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4398100093366992836, guid: 4a6d8c239d9abcc4b8355d2761744ab3, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 137.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 4398100093366992836, guid: 4a6d8c239d9abcc4b8355d2761744ab3, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 45.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8781578969438841635, guid: 4a6d8c239d9abcc4b8355d2761744ab3, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8781578969438841635, guid: 4a6d8c239d9abcc4b8355d2761744ab3, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8781578969438841635, guid: 4a6d8c239d9abcc4b8355d2761744ab3, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8781578969438841635, guid: 4a6d8c239d9abcc4b8355d2761744ab3, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8781578969438841635, guid: 4a6d8c239d9abcc4b8355d2761744ab3, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 8781578969438841635, guid: 4a6d8c239d9abcc4b8355d2761744ab3, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8781578969438841635, guid: 4a6d8c239d9abcc4b8355d2761744ab3, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

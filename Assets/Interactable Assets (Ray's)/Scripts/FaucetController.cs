@@ -14,7 +14,6 @@ public class FaucetController : MonoBehaviour
 
     void Awake()
     {
-        InteractHandler.OnInteract += OnInteract;
         waterStream = transform.Find("WaterStream").gameObject.GetComponent<ParticleSystem>();
         leftKnob = transform.Find("LeftJoint");
         rightKnob = transform.Find("RightJoint");
@@ -54,9 +53,5 @@ public class FaucetController : MonoBehaviour
         leftKnob.rotation = Quaternion.Euler(opening ? openAngle : closeAngle);
         rightKnob.rotation = Quaternion.Euler(opening ? -openAngle : closeAngle);
         yield return null;
-    }
-    private void OnDestroy()
-    {
-        InteractHandler.OnInteract -= OnInteract;
     }
 }

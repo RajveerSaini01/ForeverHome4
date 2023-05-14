@@ -17,7 +17,6 @@ public class CabinetController : MonoBehaviour
     
     void Awake()
     {
-        InteractHandler.OnInteract += OnInteract;
         leftDoor = transform.Find("Left Door");
         rightDoor = transform.Find("Right Door");
     }
@@ -46,11 +45,6 @@ public class CabinetController : MonoBehaviour
         rightDoor.rotation = Quaternion.Euler(opening ? rightOpenAngle : closeAngle);
         leftDoor.rotation = Quaternion.Euler(opening ? leftOpenAngle : closeAngle);
         yield return null;
-    }
-
-    private void OnDestroy()
-    {
-        InteractHandler.OnInteract -= OnInteract;
     }
 }
 

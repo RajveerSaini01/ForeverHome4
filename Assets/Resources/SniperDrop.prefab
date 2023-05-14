@@ -150,18 +150,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb63f433831d6b4fb766c99aa37ebcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 6494797111033276777, guid: 11ab832e1f199544eb7299c2ec9ff026, type: 3}
   damage: 100
   fireRate: 50
   barrelVelocity: 800
   maxAmmo: 12
   ammo: 12
   reloadTime: 1.25
-  fireClip: {fileID: 0}
+  bulletPrefab: {fileID: 6494797111033276777, guid: 11ab832e1f199544eb7299c2ec9ff026, type: 3}
   player: {fileID: 0}
   holsterTransform: {fileID: 0}
-  equipped: 0
+  PlayerHolsterScript: {fileID: 0}
+  fireClip: {fileID: 0}
+  canvas: {fileID: 0}
   ammoText: {fileID: 5429142783058508843}
+  equipped: 0
+  reloading: 0
+  chambered: 1
+  animating: 0
+  animator: {fileID: 0}
+  shootAnim: {fileID: 7400000, guid: 687a2be11b3594845b5a11032c0cc70b, type: 2}
 --- !u!82 &4600405452829542352
 AudioSource:
   m_ObjectHideFlags: 0

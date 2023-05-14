@@ -17,7 +17,6 @@ public class ItemPickup : Interactable
    private void OnMapReady()
    {
       // At this point,FirstPersonController exists
-      // InteractHandler.OnInteract += PickUp;
    }
 
    public override void Interact()

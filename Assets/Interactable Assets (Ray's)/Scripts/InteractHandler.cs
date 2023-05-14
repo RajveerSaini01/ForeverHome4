@@ -53,11 +53,20 @@ public class InteractHandler : MonoBehaviour
         if (interactableComponent != null)
         {
             hoverCanvas.SetActive(true);
-            hoverText.text = $"{interactableComponent.name} [E]";
-            if (Input.GetKeyDown(KeyCode.E))
+
+            if (Vector3.Distance(cam.transform.position, interactableComponent.transform.position) < 2)
             {
-                Debug.Log("Callingf: " + interactableComponent.name);
-                OnInteract?.Invoke(interactableComponent.name);
+                hoverText.text = $"{interactableComponent.name} [E]";
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    Debug.Log("Handler->" + interactableComponent.name);
+                    //OnInteract?.Invoke(interactableComponent.name);
+                    interactableComponent.SendMessage("OnInteract", interactableComponent.name);
+                }
+            }
+            else
+            {
+                hoverText.text = $"*";
             }
         }
         else

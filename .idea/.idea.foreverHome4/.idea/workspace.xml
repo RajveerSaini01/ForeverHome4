@@ -6,18 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="fb6b4799-805e-4369-a6f9-bedbad7cfdfa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.foreverHome4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.foreverHome4/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Interactable Assets (Ray's)/Scripts/CabinetController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Interactable Assets (Ray's)/Scripts/CabinetController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Interactable Assets (Ray's)/Scripts/DoorController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Interactable Assets (Ray's)/Scripts/DoorController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Interactable Assets (Ray's)/Scripts/FaucetController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Interactable Assets (Ray's)/Scripts/FaucetController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Interactable Assets (Ray's)/Scripts/InteractHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Interactable Assets (Ray's)/Scripts/InteractHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FirstPersonController.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FirstPersonController.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Interactable Assets (Ray's)/Scripts/WindowController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Interactable Assets (Ray's)/Scripts/WindowController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SniperDrop.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/SniperDrop.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/Holster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/Holster.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/TestCabinScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/TestCabinScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/blood.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/blood.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/WeaponScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CabinPrefab/WeaponScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FirstPersonController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FirstPersonController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ItemPickup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ItemPickup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SwitchScene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SwitchScene.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Electronic Highway Sign SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Electronic Highway Sign SDF.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Oswald Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Oswald Bold SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +28,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/20ec2084e3e54ecaa99fcb1c13b2e6c216e400/35/25866e33/Component.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ba80266bdc0549f69eb2853bd3ede7ff16da00/77/b9485f19/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/CabinPrefab/HolsterData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/CabinPrefab/bullet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Timer.cs" root0="FORCE_HIGHLIGHTING" />
