@@ -1244,7 +1244,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2074544370120661500}
-  m_LocalRotation: {x: -0.07705528, y: -0.018799461, z: 0.03289493, w: 0.99630666}
+  m_LocalRotation: {x: -0.07705529, y: -0.018799461, z: 0.032894935, w: 0.99630666}
   m_LocalPosition: {x: 0.001060511, y: 0.06817169, z: -0.00006759167}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4351,7 +4351,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!205 &2532612416111142961
 LODGroup:
   m_ObjectHideFlags: 0
@@ -5324,7 +5323,7 @@ Transform:
   - {fileID: 8431272339295852893}
   - {fileID: 1853057611}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &444326145683225438
 Animator:
@@ -5346,7 +5345,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!205 &3969384309695088964
 LODGroup:
   m_ObjectHideFlags: 0
@@ -5405,6 +5403,8 @@ MonoBehaviour:
   panickNum: 20
   target: {fileID: 0}
   state: 
+  searchTimer: 0
+  searchDuration: 15
 --- !u!114 &7108253999311876235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5417,15 +5417,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9af17d6f0ba9694f8023931ebb06225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 30
+  radius: 15
+  innerRadius: 5
   angle: 164
   playerRef: {fileID: 0}
-  targetMask:
+  playerMask:
     serializedVersion: 2
-    m_Bits: 320
+    m_Bits: 2056
   obstructionMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 1092
   canSeePlayer: 0
 --- !u!195 &2633733089283888572
 NavMeshAgent:

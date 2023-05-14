@@ -42,6 +42,10 @@ public class EnemyBehaviorSight : MonoBehaviour
     private string state;
     private float timeElapsed; // For use in updating Pursue() pathing in intervals
     
+    
+    [SerializeField] private float searchTimer;
+    [SerializeField] private float searchDuration = 15f;
+    
     private void Awake()
     {
         // Hookup internals
@@ -63,13 +67,16 @@ public class EnemyBehaviorSight : MonoBehaviour
         // Wait for map baking completion
         Debug.Log("Subscribed to wait");
         LevelGeneration.OnReady += OnMapReady;
+        
+        // For testing purposes only
+        TestSceneManager.OnReady += OnMapReady;
     }
 
     private void OnMapReady()
     {
         // Hookup Player / Targeting
         target = GameObject.FindGameObjectWithTag("Player").transform;
-        Debug.Log("Map Ready");
+        Debug.Log($"{name}->Behavior Activated");
 
         // Start State
         StartCoroutine(nameof(Wander));
@@ -117,6 +124,13 @@ public class EnemyBehaviorSight : MonoBehaviour
                 break;
 
             case "Searching": // Pick a new search location, then pick another one when we get there based on previous player destination. (excepted by player entering vision)
+                searchTimer += Time.deltaTime;
+                if (searchTimer >= searchDuration)
+                {
+                    StopCoroutine(nameof(Search));
+                    StartCoroutine(nameof(Wander));
+                    searchTimer = 0f;
+                }
                 if (Vector3.Distance(transform.position, agent.destination) < 0.5f)
                 {
                     agent.destination = GetNewSearchDestination();
@@ -130,6 +144,8 @@ public class EnemyBehaviorSight : MonoBehaviour
     
     private IEnumerator Wander()
     {
+        agent.destination = GetNewWanderDestination();
+        Debug.Log($"{name}->Wandering");
         state = "Wandering";
         agent.speed = walkSpeed;
         animator.SetFloat("Speed", agent.velocity.magnitude);
@@ -142,6 +158,7 @@ public class EnemyBehaviorSight : MonoBehaviour
 
     private IEnumerator Pursue()
     {
+        Debug.Log($"{name}->Pursuing");
         state = "Pursuing";
         agent.speed = runSpeed;
         animator.SetFloat("Speed", agent.velocity.magnitude);
@@ -156,7 +173,7 @@ public class EnemyBehaviorSight : MonoBehaviour
        private IEnumerator Search()
     {
         state = "Searching";
-        agent.speed = walkSpeed;
+        agent.speed = runSpeed;
         animator.SetFloat("Speed", agent.velocity.magnitude);
         yield return new WaitUntil(PlayerInsideVision); 
         
@@ -171,19 +188,6 @@ public class EnemyBehaviorSight : MonoBehaviour
         return !enemySight.canSeePlayer;
     }
     
-
-    IEnumerator WaitForWanderDuration()
-    {
-        yield return new WaitForSeconds(wanderDuration);
-    }
-
-    IEnumerator SearchDelay()
-    {
-        Debug.Log("Waiting");
-        yield return new WaitForSeconds(3);
-    }
-    
-
     void MeleeAttack()
     {
         animator.SetBool("Attack", true);

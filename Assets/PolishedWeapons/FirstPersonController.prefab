@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -474035501585767160}
   - component: {fileID: 7672288129401479351}
   - component: {fileID: 4109655752926785420}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: FirstPersonController
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -466,7 +466,7 @@ GameObject:
   - component: {fileID: 198218753270054521}
   m_Layer: 0
   m_Name: WeaponTransform
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

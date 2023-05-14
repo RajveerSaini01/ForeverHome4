@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6764246940915280954}
   - component: {fileID: 1051279503589230818}
   m_Layer: 0
-  m_Name: Mushroom
+  m_Name: MushroomTeleporter
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
