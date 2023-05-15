@@ -6,46 +6,63 @@ using Random = UnityEngine.Random;
 
 public class EnemyBehaviorSight : MonoBehaviour
 {
-    public float wanderRadius = 5f;
+// Movement
+    [Header("Movement")]
     public float walkSpeed = 2f;
     public float runSpeed = 4f;
+    public float wanderRadius = 5f;
     public float wanderDuration = 5f; 
-    public float maxpersistence = 3f;
-    private float persistence = 0f;
     public float orbitDistance = 3f;
-    public float damage = 15f;
-    public float health = 100f;
-    private float maxHealth = 0;
-    public float panickNum = 20f;
-
-    bool panicked = false;
     public Transform target;
     private Vector3 initialPosition;
     private Vector3 destination;
-    private float wanderDelay;
-    private float persistenceTimer = 0f;
-    [HideInInspector]
-    UIHealthBar healthBar;
-    Ragdoll ragdoll;
     private NavMeshAgent agent;
+
+// Sight and Detection
+    [Header("Sight and Detection")]
     private EnemySight enemySight;
     private Vector3 lastKnownPosition;
 
-    private float dieForce = 1f;
+// Health and Damage
+    [Header("Health and Damage")]
+    public float health = 100f;
+    private float maxHealth = 0;
+    public float damage = 15f;
+    private UIHealthBar healthBar;
+    private Ragdoll ragdoll;
+    private readonly float dieForce = 1f;
 
-    Animator animator; 
-    int randomNumber = 0;
-    private float lastMeleeAttackTime = 0f;
-    private float meleeAttackCooldown = 3f;
-    // Ray's Additions
-    [SerializeField]
-    private string state;
-    private float timeElapsed; // For use in updating Pursue() pathing in intervals
-    
-    
+// Panic
+    [Header("Panic")]
+    public float panickNum = 20f;
+    bool panicked = false;
+
+// Attack
+    [Header("Attack")]
+    public float atkRange = 1.5f;
+    private PlayerDamage _playerDamage;
+    private bool cooldown = false;
+    private float timer = 0f;
+
+// Ray's Additions
+    [Header("Ray's Additions")]
+    [SerializeField] private string state;
+    [SerializeField] private float timeElapsed; // For use in updating Pursue() pathing in intervals
+    private float elapsedTime = 0f;
+
+// Search
+    [Header("Search")]
     [SerializeField] private float searchTimer;
     [SerializeField] private float searchDuration = 15f;
-    
+
+// Miscellaneous
+    [Header("Miscellaneous")]
+    private Animator animator;
+    private float wanderDelay;
+    private float maxpersistence = 3f;
+    private float persistence = 0f;
+    private float persistenceTimer = 0f;
+    private ScoreHUD _scoreHUD;
     private void Awake()
     {
         // Hookup internals
@@ -84,6 +101,8 @@ public class EnemyBehaviorSight : MonoBehaviour
 
     private void Update()
     {
+        animator.SetFloat("Speed", agent.speed);
+
         /*  So the way this works now is:
             - coroutines change enemy states.
             - The stuff inside Update() increment the behavior of each state
@@ -114,12 +133,10 @@ public class EnemyBehaviorSight : MonoBehaviour
                     agent.speed = runSpeed;
                     timeElapsed = 0f;
                 }
-                // else if ((Vector3.Distance(target.position, agent.destination) < 1f || timeElapsed >= 1f) && PlayerInsideVision() && (Time.time - lastMeleeAttackTime > meleeAttackCooldown))
-                // {
-                //     agent.speed = 0;
-                //     MeleeAttack();
-                //     lastMeleeAttackTime = Time.time;
-                // }
+                else if ((Vector3.Distance(target.position, this.transform.position) < atkRange || timeElapsed >= 1f) && PlayerInsideVision())
+                {
+                    state = "Attacking";
+                }
                 
                 break;
 
@@ -138,6 +155,36 @@ public class EnemyBehaviorSight : MonoBehaviour
                 break;
             
             case "Dying":
+                break;
+            
+            case "Attacking":    
+                //Agent stops moving. It then attacks once, standing still for the animation duration, before returning back to wander.
+                agent.speed = 0;
+                animator.SetFloat("Speed", agent.speed);
+                float test = animator.GetFloat("Attack");
+                if (test == 0)
+                {
+                    animator.SetFloat("Attack", 1f);
+                }
+                //Check if 1 second has passed.
+                if (elapsedTime >= 1f)
+                {
+                    float distance = Vector3.Distance(target.position, this.transform.position);
+                    if (distance < atkRange)
+                    {
+                        //If within range, deal damage.
+                        _playerDamage = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDamage>();
+                        _playerDamage.TakeDamage(damage);
+                    }
+                    animator.SetFloat("Attack", 0f);
+                    elapsedTime = 0f;
+                    StartCoroutine(nameof(Pursue));
+                }
+                else
+                {
+                    // Increment the elapsed time.
+                    elapsedTime += Time.deltaTime;
+                }
                 break;
         }
     }
@@ -179,6 +226,7 @@ public class EnemyBehaviorSight : MonoBehaviour
         
         StartCoroutine(nameof(Pursue));
     } 
+       
     private bool PlayerInsideVision()
     {
         return enemySight.canSeePlayer;
@@ -186,24 +234,6 @@ public class EnemyBehaviorSight : MonoBehaviour
     private bool PlayerOutsideVision()
     {
         return !enemySight.canSeePlayer;
-    }
-    
-    void MeleeAttack()
-    {
-        animator.SetBool("Attack", true);
-        var playerDamage = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDamage>();
-        if (Vector3.Distance(target.position, agent.destination) < 1f)
-        {
-            playerDamage.TakeDamage(damage);
-        }
-        StartCoroutine(ResetAttack());
-    }
-
-    IEnumerator ResetAttack()
-    {
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
-        agent.speed = walkSpeed;
-        animator.SetBool("Attack", false);
     }
 
     void OnTriggerEnter(Collider other)
@@ -213,6 +243,7 @@ public class EnemyBehaviorSight : MonoBehaviour
             target = other.transform;
         }
     }
+    
 
     void OnTriggerExit(Collider other)
     {
@@ -222,7 +253,7 @@ public class EnemyBehaviorSight : MonoBehaviour
             persistenceTimer = 0f;
         }
     }
-
+    
     Vector3 GetNewWanderDestination()
     {
         Vector3 newDestination = Random.insideUnitSphere * (wanderRadius/2);
@@ -326,6 +357,8 @@ public class EnemyBehaviorSight : MonoBehaviour
         state = "Dying";
         StopAllCoroutines();
         ragdoll.ActivateRagdoll();
+        _scoreHUD = GameObject.FindGameObjectWithTag("Player").GetComponent<ScoreHUD>();
+        _scoreHUD.IncreaseKills();
         // direction.y = 1;
         ragdoll.ApplyForce(direction * dieForce);
         healthBar.gameObject.SetActive(false);
