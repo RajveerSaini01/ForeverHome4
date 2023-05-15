@@ -136,8 +136,7 @@ public class FirstPersonController : MonoBehaviour
     private Vector2 currentInput;
 
     private float rotationX = 0;
-    public Interactable focus;
-    
+
     private void OnEnable()
     {
         OnTakeDamage += ApplyDamage;
@@ -196,36 +195,36 @@ public class FirstPersonController : MonoBehaviour
                 ToggleCursorLock();
             }
             
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                Ray ray = playerCamera.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-            
-                if (Physics.Raycast(ray, out hit, 100))
-                {
-                    Interactable interactable = hit.collider.GetComponent<Interactable>();
-                    if (interactable != null)
-                    {
-                        SetFocus(interactable);
-                    }
-                }
-            }
+            // if (Input.GetKeyDown(KeyCode.F))
+            // {
+            //     Ray ray = playerCamera.ScreenPointToRay(Input.mousePosition);
+            //     RaycastHit hit;
+            //
+            //     if (Physics.Raycast(ray, out hit, 100))
+            //     {
+            //         Interactable interactable = hit.collider.GetComponent<Interactable>();
+            //         if (interactable != null)
+            //         {
+            //             SetFocus(interactable);
+            //         }
+            //     }
+            // }
 
             ApplyFinalMovements();
         }   
     }
     
-    void SetFocus(Interactable newFocus)
-    {
-        if (newFocus != focus)
-        {
-            if(focus != null)
-                focus.onDefocused();
-            
-            focus = newFocus;
-        }
-        newFocus.OnFocused(transform);
-    }
+    // void SetFocus(Interactable newFocus)
+    // {
+    //     if (newFocus != focus)
+    //     {
+    //         if(focus != null)
+    //             focus.onDefocused();
+    //         
+    //         focus = newFocus;
+    //     }
+    //     newFocus.OnFocused(transform);
+    // }
     
     private void HandleMovementInput()
     {

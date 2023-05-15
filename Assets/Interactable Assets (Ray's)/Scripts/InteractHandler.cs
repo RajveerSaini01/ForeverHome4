@@ -56,7 +56,7 @@ public class InteractHandler : MonoBehaviour
 
             if (Vector3.Distance(cam.transform.position, interactableComponent.transform.position) < 2)
             {
-                hoverText.text = $"{interactableComponent.name} [E]";
+                hoverText.text = $"{interactableComponent.name}\n[E]";
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     Debug.Log("Handler->" + interactableComponent.name);

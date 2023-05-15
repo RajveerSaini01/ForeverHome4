@@ -41,35 +41,49 @@ public class InventorySlot : MonoBehaviour
         quantity.enabled = false;
     }
 
-    public void OnRemoveButton()
-    {
-        Inventory.instance.Remove(inventoryItem);
-    }
-
-    public void UseItem()
+    public void UseButton()
     {
         if (inventoryItem != null)
         {
             inventoryItem.item.Use();
-            if (inventoryItem.item.isStackable)
-            {
-                 inventoryItem.quantity--;
-                
-                    if (inventoryItem.quantity == 0)
-                    {
-                        
-                        ClearSlot();
-                        Inventory.instance.Remove(inventoryItem);
-                    }
-                    else
-                    {
-                        quantity.text = inventoryItem.quantity.ToString();
-                    }
-            }
-           
+            Debug.Log($"{inventoryItem.item.name} clicked!");
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>().RemoveFromInventory(inventoryItem);
+        }
+    }
+    public void OnRemoveButton()
+    {
+        if (inventoryItem != null)
+        {
+            Debug.Log($"Removing {inventoryItem.item.name}!");
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>().UseFromInventory(inventoryItem);
+        }
+        else
+        {
+            Debug.Log($"Nothing to remove");
         }
     }
 
-    
-    
+    // public void UseItem()
+    // {
+    //     if (inventoryItem != null)
+    //     {
+    //         
+    //         if (inventoryItem.item.isStackable)
+    //         {
+    //              inventoryItem.quantity--;
+    //             
+    //                 if (inventoryItem.quantity == 0)
+    //                 {
+    //                     
+    //                     ClearSlot();
+    //                     Inventory.instance.Remove(inventoryItem);
+    //                 }
+    //                 else
+    //                 {
+    //                     quantity.text = inventoryItem.quantity.ToString();
+    //                 }
+    //         }
+    //        
+    //     }
+    // }
 }

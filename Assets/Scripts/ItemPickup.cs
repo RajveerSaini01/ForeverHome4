@@ -2,39 +2,19 @@
 using System;
 using UnityEngine;
 
-public class ItemPickup : Interactable
+public class ItemPickup : MonoBehaviour
 {
    public Item item;
-   
-   
-   public void Start()
-   {
-      // At this point FirstPersonController does not exist
-      LevelGeneration.OnReady += OnMapReady;
-      
-   }
 
-   private void OnMapReady()
-   {
-      // At this point,FirstPersonController exists
-   }
-
-   public override void Interact()
-   {
-      base.Interact();
+   [SerializeField] private int quantity = 1; // for use 1-object multiple quantity case, like Ammo
    
-      PickUp();
-   }
-
-   void PickUp()
+   // Used by InteractHandler via SendMessage() during runtime.
+   private void OnInteract(string nm)
    {
-      Debug.Log("Inside Item " + item.name);
-      
-         Debug.Log("Picking up Item. " + item.name);
-         bool wasPickedUp = Inventory.instance.Add(item);
-      
-         if(wasPickedUp)
-            Destroy(gameObject);
-      
+      // arg 'nm' unused at this point because Ray is doesn't understand how Andre set up the Item class / Interactable inheritance yet
+      Debug.Log("Picking up Item. " + item.name);
+      GameObject player = GameObject.FindGameObjectWithTag("Player");
+      player.GetComponent<Inventory>().AddToInventory(new InventoryItem(item, quantity));
+      Destroy(gameObject);
    }
 }
