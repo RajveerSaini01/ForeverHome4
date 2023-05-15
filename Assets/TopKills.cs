@@ -17,7 +17,7 @@ public class TopKills : MonoBehaviour
             PlayerPrefs.SetInt("TopKills", kills);
             PlayerPrefs.Save();
 
-            killsText.text = kills.ToString() + "\n<color=gold>New Record!</color>";
+            killsText.text = kills.ToString() + "New Record!";
         }
         else
         {

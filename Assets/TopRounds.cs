@@ -9,7 +9,8 @@ public class TopRounds : MonoBehaviour
 
     private void Start()
     {
-        int rounds = PlayerPrefs.GetInt("Kills", 0);
+        //I know I refer to them as waves everywhere else but i forgot :(
+        int rounds = PlayerPrefs.GetInt("Waves", 0);
         int topRounds = PlayerPrefs.GetInt("TopRounds", 0);
 
         if (rounds > topRounds)
@@ -18,7 +19,7 @@ public class TopRounds : MonoBehaviour
             PlayerPrefs.SetInt("TopRounds", rounds);
             PlayerPrefs.Save();
 
-            killsText.text = rounds.ToString() + "\n<color=gold>New Record!</color>";
+            killsText.text = rounds.ToString() + "New Record!";
         }
         else
         {
