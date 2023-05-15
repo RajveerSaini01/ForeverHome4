@@ -72,18 +72,22 @@ public class CenterGeneration : MonoBehaviour
 		
 		
 		// Get or add the NavMeshSurface component to the game object
-		BuildNavMesh(gameObject);
+		//StartCoroutine(BuildNavMesh(gameObject));
 
 		yield return 0;
-		
-		
+
 		//build a Texture2D from the height map
+		StartCoroutine(ApplyTexture(heightMap));
+	}
+	
+	IEnumerator ApplyTexture(float[,] heightMap)
+	{
 		Texture2D tileTexture = BuildTexture (heightMap);
 		tileRenderer.material.mainTexture = tileTexture;
 		tileRenderer.material.SetFloat(Metallic,0.15f);
 		tileRenderer.material.SetFloat(Glossiness,0.15f);
+		yield return 0;
 	}
-
 	private float[,] GenerateHeightMap(float offsetX, float offsetZ) {
 		// Use our meshFilter vertices to figure out how the dimensions of our heightmap
 		Vector3[] meshVertices = meshFilter.mesh.vertices;
@@ -233,7 +237,7 @@ public class CenterGeneration : MonoBehaviour
 		// update the mesh collider
 		meshCollider.sharedMesh = mesh;
 	}
-	private void BuildNavMesh(GameObject o)
+	private IEnumerator BuildNavMesh(GameObject o)
 	{
 		// Get or add the NavMeshSurface component to the game object
 		NavMeshSurface navMeshSurface = o.GetComponent<NavMeshSurface>();
@@ -244,5 +248,6 @@ public class CenterGeneration : MonoBehaviour
 
 		// Generate the NavMesh
 		navMeshSurface.BuildNavMesh();
+		yield return 0;
 	}
 }

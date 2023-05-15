@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerDamage : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class PlayerDamage : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log("Health: " + health);
         if (isOnCooldown)
         {
             return;
@@ -37,15 +39,19 @@ public class PlayerDamage : MonoBehaviour
         }
     }
 
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        DamageFlash();
+        if (health is 0 or < 0)
+        {
+            SceneManager.LoadScene("Mainmenu");
+        }
+    }
+
     private void EndCooldown()
     {
         isOnCooldown = false;
-    }
-
-    public void TakeDamage(float damage){
-        health -= damage;
-        DamageFlash();
-        Debug.Log(health);
     }
 
     private IEnumerator DamageFlash()

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3349148}
   - component: {fileID: 2357914}
   - component: {fileID: -3553324072969483703}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: CapBellShaped_StalkBolbous_LOD0_Type01
   m_TagString: ColorShroom
   m_Icon: {fileID: 0}

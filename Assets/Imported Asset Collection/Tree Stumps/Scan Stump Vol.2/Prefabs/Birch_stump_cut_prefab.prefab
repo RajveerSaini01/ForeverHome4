@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6955151264012123396, guid: d1a12e90a408572488dc83539da2d1a0, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d1a12e90a408572488dc83539da2d1a0, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -57,8 +61,24 @@ PrefabInstance:
       value: Birch_stump_cut_prefab
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: d1a12e90a408572488dc83539da2d1a0, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d1a12e90a408572488dc83539da2d1a0, type: 3}
       propertyPath: m_TagString
       value: Stump
+      objectReference: {fileID: 0}
+    - target: {fileID: 2730434939621947655, guid: d1a12e90a408572488dc83539da2d1a0, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3364210953405337423, guid: d1a12e90a408572488dc83539da2d1a0, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274444237877763117, guid: d1a12e90a408572488dc83539da2d1a0, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

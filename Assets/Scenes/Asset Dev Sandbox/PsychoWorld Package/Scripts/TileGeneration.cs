@@ -97,24 +97,35 @@ public class TileGeneration : MonoBehaviour
 		yield return 0;
 		
 		// Do this after Static prefab loading, but before dynamic prefab loading
-		BuildNavMesh(gameObject);
+		// Get or add the NavMeshSurface component to the game object
+		//StartCoroutine(BuildNavMesh(gameObject));
 		
 		yield return 0;
+
+		//build a Texture2D from the height map
+		StartCoroutine(ApplyTexture(heightMap));
 		
 		// Place animate/dynamic prefabs
-		for (int i = 0; i < dynamicPrefabs.Length; i++)
-		{
-			float[,] generativeMap = GenerateScatterMap(offsetX+i, offsetZ+i);
-			ParityScatter(dynamicPrefabs[i], generativeMap, scatterRadius);
+		if (!isHome){
+			for (int i = 0; i < dynamicPrefabs.Length; i++)
+			{
+				float[,] generativeMap = GenerateScatterMap(offsetX + i, offsetZ + i);
+				ParityScatter(dynamicPrefabs[i], generativeMap, scatterRadius);
+			}
 		}
 		
-		// build a Texture2D from the height map
+	}
+	
+	IEnumerator ApplyTexture(float[,] heightMap)
+	{
 		Texture2D tileTexture = BuildTexture (heightMap);
 		tileRenderer.material.mainTexture = tileTexture;
-		tileRenderer.material.SetFloat(Metallic,0.05f);
-		tileRenderer.material.SetFloat(Glossiness,0.05f);
+		tileRenderer.material.SetFloat(Metallic,0.15f);
+		tileRenderer.material.SetFloat(Glossiness,0.15f);
+		yield return 0;
 	}
-
+	
+	
 	private float[,] GenerateHeightMap(float offsetX, float offsetZ) {
 		// Use our meshFilter vertices to figure out how the dimensions of our heightmap
 		Vector3[] meshVertices = meshFilter.mesh.vertices;
@@ -376,13 +387,17 @@ public class TileGeneration : MonoBehaviour
 		 }
 	 }
 
-	 private void BuildNavMesh(GameObject o)
+	 private IEnumerator BuildNavMesh(GameObject o)
 	 {
 		 // Get or add the NavMeshSurface component to the game object
 		 NavMeshSurface navMeshSurface = o.GetComponent<NavMeshSurface>();
-		 if (navMeshSurface != null)
+		 if (navMeshSurface == null)
 		 {
-			 navMeshSurface.BuildNavMesh();
+			 navMeshSurface = o.AddComponent<NavMeshSurface>();
 		 }
+
+		 // Generate the NavMesh
+		 navMeshSurface.BuildNavMesh();
+		 yield return 0;
 	 }
 }

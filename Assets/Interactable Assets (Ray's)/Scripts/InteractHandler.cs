@@ -1,48 +1,78 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
-using UnityEditor.SceneManagement;
+using TMPro;
 using UnityEngine;
 
 public class InteractHandler : MonoBehaviour
 {
-    public static event Action<string> OnInteract;
     private Camera cam;
 
     [SerializeField] private GameObject target;
     [SerializeField] private GameObject interactableComponent;
+    [SerializeField] private GameObject hoverCanvas;
+    [SerializeField] private TextMeshProUGUI hoverText;
     
-    void Start()
+    private void Start()
     {
         cam = Camera.main;
+        hoverCanvas.SetActive(true);
     }
 
-    void Update()
+    private void Update()
     {
+
         RaycastHit hit;
-        Vector3 p1 = cam.transform.position;
+        
         
         // Physics.SphereCast(p1, 0.2f, ray.direction, out hit, 2f)
         Ray ray = cam.ScreenPointToRay(new (Screen.width/2f, Screen.height/2f, 0f));
-        if (Physics.Raycast(ray, out hit,1f))
+        if (Physics.Raycast(ray, out hit,3f))
         {
-            Debug.DrawLine(ray.origin, hit.point);
-            
             target = hit.collider.gameObject;
-            
             interactableComponent = GetInteractableObjectOrParent(target);
+            
+            Debug.DrawLine(ray.origin, hit.point);
+            //hoverCanvas.transform.SetParent(target.transform, true);
+            hoverCanvas.transform.position = hit.point;
+            hoverCanvas.transform.LookAt(cam.transform.position);
+            hoverCanvas.transform.Translate(0.01f * Vector3.forward);
+            hoverCanvas.transform.Rotate(0, 180, 0, Space.Self);
+           
+            
+
         }
         else
         {
+            hoverText.text = "";
+            hoverCanvas.SetActive(false);
             target = null;
             interactableComponent = null;
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && interactableComponent != null)
+        if (interactableComponent != null)
         {
-            Debug.Log("Calling: " + interactableComponent.name);
-            OnInteract?.Invoke(interactableComponent.name);
+            hoverCanvas.SetActive(true);
+
+            if (Vector3.Distance(cam.transform.position, interactableComponent.transform.position) < 2)
+            {
+                hoverText.text = $"{interactableComponent.name} [E]";
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    Debug.Log("Handler->" + interactableComponent.name);
+                    //OnInteract?.Invoke(interactableComponent.name);
+                    interactableComponent.SendMessage("OnInteract", interactableComponent.name);
+                }
+            }
+            else
+            {
+                hoverText.text = $"*";
+            }
+        }
+        else
+        {
+            hoverText.text = "";
+            hoverCanvas.SetActive(false);
         }
     }
 

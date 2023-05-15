@@ -17,7 +17,6 @@ public class CabinetController : MonoBehaviour
     
     void Awake()
     {
-        InteractHandler.OnInteract += OnInteract;
         leftDoor = transform.Find("Left Door");
         rightDoor = transform.Find("Right Door");
     }

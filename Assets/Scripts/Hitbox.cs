@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Hitbox : MonoBehaviour
 {
     public EnemyBehaviorSight behavior;
@@ -20,9 +19,10 @@ public class Hitbox : MonoBehaviour
         }
         skinnedmeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
     }
-    public void OnRaycastHit(RaycastDamage weapon, Vector3 direction){
+    public void OnRaycastHit(float damage, Vector3 direction){
+        Debug.Log("Got Shot!");
         blinkTimer = blinkDuration;
-        behavior.TakeDamage(weapon.damage, direction);
+        behavior.TakeDamage(damage, direction);
     }
     private void Update(){
         blinkTimer -= Time.deltaTime;

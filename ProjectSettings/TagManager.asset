@@ -5,6 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - Interactable
+  - Bullet
+  - Enemy
+  - Stump
+  - Tree
+  - Bush
+  - ColorShroom
+  - Floor
+  - Rock
+  - BigShroom
   layers:
   - Default
   - TransparentFX
@@ -12,13 +21,13 @@ TagManager:
   - 
   - Water
   - UI
+  - interactable
   - 
+  - target
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Weapon
+  - Player
+  - NavMeshIncluded
   - 
   - 
   - 

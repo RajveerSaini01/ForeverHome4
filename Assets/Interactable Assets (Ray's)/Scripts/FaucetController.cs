@@ -14,7 +14,6 @@ public class FaucetController : MonoBehaviour
 
     void Awake()
     {
-        InteractHandler.OnInteract += OnInteract;
         waterStream = transform.Find("WaterStream").gameObject.GetComponent<ParticleSystem>();
         leftKnob = transform.Find("LeftJoint");
         rightKnob = transform.Find("RightJoint");

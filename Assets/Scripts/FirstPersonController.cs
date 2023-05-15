@@ -21,12 +21,14 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField] private bool willSlideOnSlopes = true;
     [SerializeField] private bool canZoom = true;
     [SerializeField] private bool useStamina = true; 
+    [SerializeField] private bool canInteract = true;
 
     [Header("Controls")] 
     [SerializeField] private KeyCode sprintKey = KeyCode.LeftShift;
     [SerializeField] private KeyCode jumpKey = KeyCode.Space;
     [SerializeField] private KeyCode crouchKey = KeyCode.LeftControl;
     [SerializeField] private KeyCode zoomKey = KeyCode.Mouse1;
+    [SerializeField] private KeyCode interactKey = KeyCode.F;
 
     
     [Header("Health Prameters")]
@@ -34,6 +36,8 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField]private float timeBeforeRegenStarts = 3.0f;
     [SerializeField]private float healthValueIncrement = 1;
     [SerializeField]private float healthTimeIncrement = 0.1f;
+    [SerializeField] private float damageAmount = 10f;
+    public string damagingObjectTag = "ouch";
     private float currentHealth;
     private Coroutine regenertingHealth;
     public static Action<float> OnTakeDamage;
@@ -50,7 +54,10 @@ public class FirstPersonController : MonoBehaviour
     private Coroutine regenerateStamina;
     public static Action<float> OnStaminaChange;
 
-
+    
+    [Header("Inventory Parameters")]
+    public GameObject Hand;
+    
 
     [Header("Movement Parameters")] 
     [SerializeField]private float walkSpeed = 3.0f;
@@ -73,12 +80,13 @@ public class FirstPersonController : MonoBehaviour
     [Header("Crouch Parameters")]
     //Crouch Height
     [SerializeField] private float crouchHeight = 0.5f;
-    [SerializeField] private float standingHeight = 2f;
+    [SerializeField] private float standingHeight = 1.5f;
     [SerializeField] private float timetoCrouch = 0.25f;
     [SerializeField] private Vector3 crouchingCenter = new Vector3(0,0.5f,0);
     [SerializeField] private Vector3 standingCenter = new Vector3(0,0,0);
     private bool isCrouching;
     private bool duringCrouchAnimation;
+    private float originalHeight;
     
     [Header("Headbob Parameters")]
     [SerializeField] private float walkBobSpeed = 14f;
@@ -92,7 +100,7 @@ public class FirstPersonController : MonoBehaviour
     
     [Header("Zoom Parameters")]
     [SerializeField] private float timeToZoom = 0.3f;
-    [SerializeField] private float zoomFOV = 30f;
+    [SerializeField] private float zoomFOV = 25f;
     private float defaultFOV;
     private Coroutine zoomRoutine;
     
@@ -116,13 +124,20 @@ public class FirstPersonController : MonoBehaviour
         }
     }
     
+    [Header("Interaction")] 
+    [SerializeField] private Vector3 interactionRayPoint = default;
+    [SerializeField] private float interactionDistance = default;
+    [SerializeField] private LayerMask interactionLayer = default;
+    
+    
     private Camera playerCamera;
     private CharacterController characterController;
     private Vector3 moveDirection;
     private Vector2 currentInput;
 
     private float rotationX = 0;
-
+    public Interactable focus;
+    
     private void OnEnable()
     {
         OnTakeDamage += ApplyDamage;
@@ -133,6 +148,14 @@ public class FirstPersonController : MonoBehaviour
         OnTakeDamage -= ApplyDamage;
     }
 
+    void Start()
+    {
+        characterController = GetComponent<CharacterController>();
+        originalHeight = characterController.height;
+        playerCamera = Camera.main;
+
+    }
+    
     void Awake()
     {
         playerCamera = GetComponentInChildren<Camera>();
@@ -167,11 +190,43 @@ public class FirstPersonController : MonoBehaviour
 
             if (useStamina)
                 HandleStamina();
+            
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                ToggleCursorLock();
+            }
+            
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Ray ray = playerCamera.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+            
+                if (Physics.Raycast(ray, out hit, 100))
+                {
+                    Interactable interactable = hit.collider.GetComponent<Interactable>();
+                    if (interactable != null)
+                    {
+                        SetFocus(interactable);
+                    }
+                }
+            }
 
             ApplyFinalMovements();
         }   
     }
-
+    
+    void SetFocus(Interactable newFocus)
+    {
+        if (newFocus != focus)
+        {
+            if(focus != null)
+                focus.onDefocused();
+            
+            focus = newFocus;
+        }
+        newFocus.OnFocused(transform);
+    }
+    
     private void HandleMovementInput()
     {
         currentInput = new Vector2((isCrouching ? crouchSpeed : isSprinting ? sprintSpeed : walkSpeed) * Input.GetAxis("Vertical"), (isCrouching ? crouchSpeed : isSprinting ? sprintSpeed :  walkSpeed) * Input.GetAxis("Horizontal"));
@@ -192,6 +247,20 @@ public class FirstPersonController : MonoBehaviour
         transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeedX, 0);
     }
 
+    private void ToggleCursorLock()
+    {
+        if (Cursor.lockState == CursorLockMode.Locked)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+    }
+    
     private void HandleJump()
     {
         if (ShouldJump)
@@ -254,12 +323,13 @@ public class FirstPersonController : MonoBehaviour
         if (currentHealth <= 0)
         {
             KillPlayer();
-        }else if (regenertingHealth != null)
-        {
-            StopCoroutine(regenertingHealth);
         }
-
-        regenertingHealth = StartCoroutine(RegenerateHealth()); 
+        // else if (regenertingHealth != null)
+        // {
+        //     StopCoroutine(regenertingHealth);
+        // }
+        //
+        // regenertingHealth = StartCoroutine(RegenerateHealth()); 
     }
 
     private void KillPlayer()
@@ -297,6 +367,23 @@ public class FirstPersonController : MonoBehaviour
         }
     }
     
+    // private void HandleInteractionCheck()
+    // {
+    //     if (Physics.Raycast(playerCamera.ViewportPointToRay(interactionRayPoint), out RaycastHit hit,
+    //             interactionDistance))
+    //     {
+    //         if (hit.collider.gameObject.layer == 6 && (currentInteractable == null || hit.collider.gameObject.GetInstanceID() != currentInteractable.GetInstanceID()))
+    //         {
+    //             hit.collider.TryGetComponent(out currentInteractable);
+    //             if(currentInteractable)
+    //                 currentInteractable.OnFocus();
+    //         }
+    //     }else if (currentInteractable)
+    //     {
+    //         currentInteractable.OnLoseFocus();
+    //         currentInteractable = null;
+    //     }
+    // }
     
     private void ApplyFinalMovements()
     {
@@ -355,24 +442,24 @@ public class FirstPersonController : MonoBehaviour
         zoomRoutine = null; 
     }
 
-    private IEnumerator RegenerateHealth()
-    {
-        yield return new WaitForSeconds(timeBeforeRegenStarts);
-        WaitForSeconds timeToWait = new WaitForSeconds(healthTimeIncrement);
-
-        while (currentHealth < maxHealth)
-        {
-            currentHealth += healthValueIncrement;
-
-            if (currentHealth > maxHealth)
-                currentHealth = maxHealth;
-            
-            OnHeal?.Invoke(currentHealth);
-            yield return timeToWait;
-        }
-
-        regenertingHealth = null; 
-    }
+    // private IEnumerator RegenerateHealth()
+    // {
+    //     yield return new WaitForSeconds(timeBeforeRegenStarts);
+    //     WaitForSeconds timeToWait = new WaitForSeconds(healthTimeIncrement);
+    //
+    //     while (currentHealth < maxHealth)
+    //     {
+    //         currentHealth += healthValueIncrement;
+    //
+    //         if (currentHealth > maxHealth)
+    //             currentHealth = maxHealth;
+    //         
+    //         OnHeal?.Invoke(currentHealth);
+    //         yield return timeToWait;
+    //     }
+    //
+    //     regenertingHealth = null; 
+    // }
 
     private IEnumerator RegenerateStamina()
     {
@@ -395,5 +482,16 @@ public class FirstPersonController : MonoBehaviour
         }
 
         regenerateStamina = null;
+    }
+    
+    public void IncreaseHealth(float amount)
+    {
+        currentHealth += amount;
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        
+        OnHeal?.Invoke(currentHealth);
     }
 }

@@ -18,7 +18,6 @@ public class DoorController : MonoBehaviour
         barredDoor = Hinge.Find("Barred").gameObject;
         unbarredDoor.SetActive(true);
         barredDoor.SetActive(false);
-        InteractHandler.OnInteract += OnInteract;
     }
 
     void OnInteract(string caller)
