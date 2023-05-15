@@ -62,7 +62,7 @@ public class EnemyBehaviorSight : MonoBehaviour
     private float maxpersistence = 3f;
     private float persistence = 0f;
     private float persistenceTimer = 0f;
-    
+    private ScoreHUD _scoreHUD;
     private void Awake()
     {
         // Hookup internals
@@ -357,6 +357,8 @@ public class EnemyBehaviorSight : MonoBehaviour
         state = "Dying";
         StopAllCoroutines();
         ragdoll.ActivateRagdoll();
+        _scoreHUD = GameObject.FindGameObjectWithTag("Player").GetComponent<ScoreHUD>();
+        _scoreHUD.IncreaseKills();
         // direction.y = 1;
         ragdoll.ApplyForce(direction * dieForce);
         healthBar.gameObject.SetActive(false);
