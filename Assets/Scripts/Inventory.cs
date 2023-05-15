@@ -8,8 +8,7 @@ public class Inventory : MonoBehaviour
     // Scriptable Object Data
     [SerializeField] private InventoryData inventoryData;
     public int capacity = 20;
-    private List<InventoryItem> inventory = new();
-    
+
     // Canvas GameObject Data
     private InventorySlot[] slots;
     public GameObject inventoryCanvas;
@@ -22,7 +21,6 @@ public class Inventory : MonoBehaviour
     {
         if (inventoryData != null)
         {
-            inventory = inventoryData.inventory;
             slots = itemsParent.GetComponentsInChildren<InventorySlot>();
             UpdateUI();
             
@@ -36,10 +34,12 @@ public class Inventory : MonoBehaviour
 
         // For every item in my inventory, if the item im adding into it already exists, increment the existing item's quantity, instead of adding new.
         bool preExisting = false;
-        foreach (InventoryItem item in inventory)
+        foreach (InventoryItem item in inventoryData.inventory)
         {
+            Debug.Log($"{item.item.name} == {inventoryItem.item.name}");
             if (item.item.name == inventoryItem.item.name)
             {
+                
                 item.quantity += inventoryItem.quantity; // add incoming quantity to already present quantity
             }
             preExisting = true;
@@ -48,7 +48,7 @@ public class Inventory : MonoBehaviour
 
         if (!preExisting) // this check can be done smarter, by utilizing the fact that the inventory wont Contain() if it doesnt exist
         {
-            inventory.Add(inventoryItem);
+            inventoryData.inventory.Add(inventoryItem);
         }
 
         UpdateUI();
@@ -77,10 +77,11 @@ public class Inventory : MonoBehaviour
         }
         else
         {
-            inventory.Remove(inventoryItem);
+            inventoryData.inventory.Remove(inventoryItem);
         }
         UpdateUI();
     }
+    
     
     private void Update()
     {
@@ -94,14 +95,15 @@ public class Inventory : MonoBehaviour
             inventoryCanvas.SetActive(!inventoryCanvas.activeInHierarchy);
         }
     }
+    
     private void UpdateUI()
     {
         Debug.Log("Updating UI");
         for (int i = 0; i < slots.Length; i++)
         {
-            if (i < inventory.Count)
+            if (i < inventoryData.inventory.Count)
             {
-                slots[i].AddItem(inventory[i]);
+                slots[i].AddItem(inventoryData.inventory[i]);
             }
             else
             {

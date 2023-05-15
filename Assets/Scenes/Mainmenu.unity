@@ -1854,6 +1854,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instructionsObject: {fileID: 361751816}
   mainMenuObject: {fileID: 872975064}
+  inventoryData: {fileID: 11400000, guid: e648f841f02f5094b86434ae0959b246, type: 2}
 --- !u!1 &1577333842
 GameObject:
   m_ObjectHideFlags: 0

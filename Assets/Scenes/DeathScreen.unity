@@ -776,7 +776,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 544116551}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af6e60666a2139c41b2ffd49998a3d29, type: 3}
+  m_Script: {fileID: 11500000, guid: aae93fbd722e19e4295f818ebf6020c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   killsText: {fileID: 64898771}
@@ -2161,6 +2161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instructionsObject: {fileID: 0}
   mainMenuObject: {fileID: 872975064}
+  inventoryData: {fileID: 11400000, guid: e648f841f02f5094b86434ae0959b246, type: 2}
 --- !u!1 &1577333842
 GameObject:
   m_ObjectHideFlags: 0
@@ -2447,7 +2448,6 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -2696,7 +2696,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1530346410}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: QuitGame
+        m_MethodName: mainmenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

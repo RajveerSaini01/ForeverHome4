@@ -49,7 +49,7 @@ public class PlayerDamage : MonoBehaviour
         {
             health = 0f;
             Debug.Log("PlayerDamage death");
-            SceneManager.LoadScene("Mainmenu");
+            SceneManager.LoadScene("DeathScreen");
 
         }
     }

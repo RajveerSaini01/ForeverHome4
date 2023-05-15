@@ -12,7 +12,7 @@ public class CountdownTimer : MonoBehaviour
     private float timer = 600.0f; // 10 minutes in seconds
     private bool red = false;
     private bool countdownStarted = false;
-    private float countdownTimer = 120.0f; // 2 minutes in seconds
+    private float countdownTimer = 600.0f; // 2 minutes in seconds
     
     private void Awake()
     {

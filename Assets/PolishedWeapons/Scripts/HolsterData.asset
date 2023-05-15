@@ -12,7 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 929721101314fa844b88138cef2c895d, type: 3}
   m_Name: HolsterData
   m_EditorClassIdentifier: 
-  holster: []
+  holster:
+  - weaponObject: {fileID: 2030640655535840993, guid: 50b07e94d2a632a4db0a969e48a21bfd, type: 3}
+    damage: 100
+    fireRate: 50
+    barrelVelocity: 800
+    maxAmmo: 12
+    ammo: 11
+    reloadTime: 1.25
+  - weaponObject: {fileID: 6332722184353985484, guid: 4e502aeb05e29534aa6344d0235552f3, type: 3}
+    damage: 50
+    fireRate: 300
+    barrelVelocity: 500
+    maxAmmo: 10
+    ammo: 10
+    reloadTime: 0.75
   activeWeapon:
-    weaponObject: {fileID: 0}
-    ammoCount: 0
+    weaponObject: {fileID: 6332722184353985484, guid: 4e502aeb05e29534aa6344d0235552f3, type: 3}
+    damage: 50
+    fireRate: 300
+    barrelVelocity: 500
+    maxAmmo: 10
+    ammo: 10
+    reloadTime: 2.25

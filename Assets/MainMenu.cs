@@ -8,7 +8,8 @@ public class MainMenu : MonoBehaviour
 {
    public GameObject instructionsObject;
    public GameObject mainMenuObject;
-
+   public InventoryData inventoryData;
+   
    private void Awake()
    {
       Cursor.lockState = CursorLockMode.None;
@@ -19,11 +20,16 @@ public class MainMenu : MonoBehaviour
    {
       PlayerPrefs.SetInt("Waves", 0);
       PlayerPrefs.SetInt("Kills", 0);
+      PlayerPrefs.Save();
       SceneManager.LoadScene("HomeWorld");
+      inventoryData.inventory.Clear();
    }
    
    public void QuitGame()
    {
+      PlayerPrefs.SetInt("Waves", 0);
+      PlayerPrefs.SetInt("Kills", 0);
+      PlayerPrefs.Save();
       Application.Quit();
       Debug.Log("Quit");
    }

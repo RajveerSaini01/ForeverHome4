@@ -13,7 +13,9 @@ public class ScoreHUD : MonoBehaviour
     void Start()
     {
         // Load the values from PlayerPrefs, defaulting to 0 if they haven't been set yet
-        kills = PlayerPrefs.GetInt("Kills", 0);
+        PlayerPrefs.SetInt("Kills", 0);
+        PlayerPrefs.Save();
+        kills = 0;
         waves = PlayerPrefs.GetInt("Waves", 0);
 
         // Update the text

@@ -19,7 +19,7 @@ public class TopRounds : MonoBehaviour
             PlayerPrefs.SetInt("TopRounds", rounds);
             PlayerPrefs.Save();
 
-            killsText.text = rounds.ToString() + "New Record!";
+            killsText.text = rounds.ToString() + "\nNew Record!";
         }
         else
         {
