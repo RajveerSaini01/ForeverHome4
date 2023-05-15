@@ -42,7 +42,7 @@ public class PlayerDamage : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
-        DamageFlash();
+        StartCoroutine(DamageFlash());
         if (health is 0 or < 0)
         {
             SceneManager.LoadScene("Mainmenu");

@@ -17,12 +17,16 @@ public class MainMenu : MonoBehaviour
    
    public void QuitGame()
    {
+      PlayerPrefs.SetInt("Waves", 0);
+      PlayerPrefs.SetInt("Kills", 0);
       Application.Quit();
       Debug.Log("Quit");
    }
 
    public void Credits()
    {
+      PlayerPrefs.SetInt("Waves", 0);
+      PlayerPrefs.SetInt("Kills", 0);
       SceneManager.LoadScene("Credits");
       Debug.Log("credits");
    }
