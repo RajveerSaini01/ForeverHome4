@@ -1,9 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.AI.Navigation;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.SceneManagement;
+
 
 public class LevelGeneration : MonoBehaviour
 {
@@ -23,6 +26,7 @@ public class LevelGeneration : MonoBehaviour
     public GameObject waterSpecularPrefab;
     public GameObject wall;
     public int waterHeight;
+    public TMP_Text countDownText;
     
     [Header("Prefab List")] 
     public Prefab[] staticPrefabs;
@@ -64,6 +68,8 @@ public class LevelGeneration : MonoBehaviour
     {
         // Parameters up for change:
         isHome = home;
+
+        if (!isHome) StartCoroutine(StartCountdown());
         
         // Else randomly generated
         heightWave = new Wave[3];
@@ -192,7 +198,26 @@ public class LevelGeneration : MonoBehaviour
         }
         Instantiate(prefab, prefabPos, Quaternion.identity);
     }
+
+    IEnumerator StartCountdown()
+    {
+        float countdownTime = 120f;
+        while (countdownTime > 0)
+        {
+            yield return new WaitForSeconds(1f);
+            countdownTime--;
+
+            if (countdownTime < 30)
+            {
+                countDownText.text = "Return Home: " + countdownTime.ToString();
+            }
+        }
+        
+        SceneManager.LoadScene("HomeWorld");
+    }
 }
+
+
 
 [Serializable]
 public class Prefab {

@@ -340,7 +340,7 @@ MonoBehaviour:
   timeToZoom: 0.3
   zoomFOV: 30
   interactionRayPoint: {x: 0.5, y: 0.5, z: 0}
-  interactionDistance: 2
+  interactionDistance: 3
   interactionLayer:
     serializedVersion: 2
     m_Bits: 0
