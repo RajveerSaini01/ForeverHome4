@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Background Pics.meta
 guid: e65b14e0772f46a4c8658b3ed3c3341c
+========
+guid: 09d62603e0d7adb4aa17bc97743a306f
+>>>>>>>> Reece-Branch:Assets/IMG.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

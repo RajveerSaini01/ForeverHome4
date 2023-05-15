@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Old Sign Roads/Prefabs/road sign_main.prefab.meta
 guid: 73049e31c4569594197e3a0d78fd963f
+========
+guid: 4852076755d15154e9d1da5b2a9cac83
+>>>>>>>> Reece-Branch:Assets/Old Sign Roads/Prefabs/road sign_iron_road_stop.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

@@ -15,6 +15,7 @@ public class PlayerDamage : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log("Health: " + health);
         if (isOnCooldown)
         {
             return;
@@ -42,7 +43,7 @@ public class PlayerDamage : MonoBehaviour
     {
         health -= damage;
         DamageFlash();
-        if(health <= 0)
+        if (health is 0 or < 0)
         {
             SceneManager.LoadScene("Mainmenu");
         }

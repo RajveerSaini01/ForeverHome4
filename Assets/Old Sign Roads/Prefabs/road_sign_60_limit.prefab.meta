@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Old Sign Roads/Prefabs/road_sign_60_limit.prefab.meta
 guid: aa9af19bb181d0d4f97c9b229fa06f7c
+========
+guid: 7051f5708d2baff4c985b8b2612fe980
+>>>>>>>> Reece-Branch:Assets/Old Sign Roads/Prefabs/road sign_left.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

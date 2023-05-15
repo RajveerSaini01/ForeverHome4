@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/IMG.meta
 guid: 09d62603e0d7adb4aa17bc97743a306f
+========
+guid: 323240551a6d9a4498ad41d57a9c00c5
+>>>>>>>> Reece-Branch:Assets/Imported Asset Collection/Rocks/Photoscanned MoutainsRocks PBR/_ReadMe & Publisher Window.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
