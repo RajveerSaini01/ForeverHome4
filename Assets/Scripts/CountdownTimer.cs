@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,9 +13,19 @@ public class CountdownTimer : MonoBehaviour
     private bool red = false;
     private bool countdownStarted = false;
     private float countdownTimer = 120.0f; // 2 minutes in seconds
-
-    void FixedUpdate()
+    
+    private void Awake()
     {
+        if (GameObject.Find("Level").GetComponent<LevelGeneration>().isHome)
+        {
+            GameObject.Find("TimerGroup").SetActive(false);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+
+
         if (countdownTimer > 0)
         {
             timer -= Time.deltaTime;
@@ -33,6 +44,7 @@ public class CountdownTimer : MonoBehaviour
                 red = true;*/
             }
 
+            // For Second Phase (not yet implemented)
             if (countdownStarted && countdownTimer > 0)
             {
                 countdownTimer -= Time.deltaTime;

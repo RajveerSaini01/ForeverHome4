@@ -12,13 +12,22 @@ public class Inventory : MonoBehaviour
     
     // Canvas GameObject Data
     private InventorySlot[] slots;
-    [SerializeField] private GameObject inventoryCanvas;
-    [SerializeField] private Transform itemsParent;
+    public GameObject inventoryCanvas;
+    public Transform itemsParent;
+
+    
+    
+    
     private void Awake()
     {
-        inventory = inventoryData.inventory;
-        slots = itemsParent.GetComponentsInChildren<InventorySlot>();
-        UpdateUI();
+        if (inventoryData != null)
+        {
+            inventory = inventoryData.inventory;
+            slots = itemsParent.GetComponentsInChildren<InventorySlot>();
+            UpdateUI();
+            
+            Debug.Log($"Parent found: {inventoryCanvas.name}");
+        }
     }
 
     public void AddToInventory(InventoryItem inventoryItem)
@@ -47,9 +56,12 @@ public class Inventory : MonoBehaviour
     
     public void UseFromInventory(InventoryItem inventoryItem)
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        GameObject drop = Instantiate(inventoryItem.item.itemDropPrefab, player.transform.position, Quaternion.identity);
-        drop.GetComponent<Rigidbody>().AddForce(player.transform.forward, ForceMode.Impulse);
+        Camera cam = Camera.main;
+        GameObject drop = Instantiate(inventoryItem.item.itemDropPrefab, cam.transform.position,  cam.transform.rotation);
+        
+        Ray camRay = cam.ViewportPointToRay(new Vector3(0.5f,0.5f, 0f));
+        Rigidbody dropPhysics = drop.GetComponent<Rigidbody>();
+        dropPhysics.AddForce(camRay.direction * 1.2f, ForceMode.Impulse); // Why doesnt this go forwards?
             
         // piggyback
         RemoveFromInventory(inventoryItem);
@@ -67,7 +79,6 @@ public class Inventory : MonoBehaviour
         {
             inventory.Remove(inventoryItem);
         }
-
         UpdateUI();
     }
     
@@ -76,7 +87,11 @@ public class Inventory : MonoBehaviour
         // Toggle inventory
         if (Input.GetButtonDown("MainInventory"))
         {
-            inventoryCanvas.SetActive(!inventoryCanvas.activeSelf);
+            Debug.Log($"Toggled");
+            Debug.Log($"{inventoryCanvas.name}");
+            //inventoryCanvas.SetActive(true);
+            
+            inventoryCanvas.SetActive(!inventoryCanvas.activeInHierarchy);
         }
     }
     private void UpdateUI()

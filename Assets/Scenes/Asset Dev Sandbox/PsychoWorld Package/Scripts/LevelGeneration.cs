@@ -68,8 +68,6 @@ public class LevelGeneration : MonoBehaviour
     {
         // Parameters up for change:
         isHome = home;
-
-        if (!isHome) StartCoroutine(StartCountdown());
         
         // Else randomly generated
         heightWave = new Wave[3];
@@ -151,6 +149,10 @@ public class LevelGeneration : MonoBehaviour
         InstantiateObjectInMap(playerPrefab, centerPos.x, centerPos.y);
         Instantiate(waterPrefab, new Vector3(centerPos.x, waterHeight, centerPos.y), Quaternion.identity).transform.localScale = new Vector3(mapWidth, 1, mapDepth);
         Instantiate(waterSpecularPrefab, new Vector3(centerPos.x, waterHeight, centerPos.y), Quaternion.identity).transform.localScale = new Vector3(mapWidth, 1, mapDepth);
+
+        yield return new WaitForSeconds(0.5f);
+        
+        if (!isHome) StartCoroutine(StartCountdown());
         
         // Broadcast ready state to initialize all the enemies' scripts
         Debug.Log("Invoking Ready State");
@@ -201,6 +203,11 @@ public class LevelGeneration : MonoBehaviour
 
     IEnumerator StartCountdown()
     {
+        yield return 0;
+        // We must call this coroutine after player instantiation
+        GameObject player = GameObject.FindGameObjectWithTag("Player").transform.Find("Timer (Canvas)").gameObject;
+        player.SetActive(true);
+        
         float countdownTime = 120f;
         while (countdownTime > 0)
         {
@@ -209,7 +216,7 @@ public class LevelGeneration : MonoBehaviour
 
             if (countdownTime < 30)
             {
-                countDownText.text = "Return Home: " + countdownTime.ToString();
+                player.GetComponent<CountdownTimer>().countdown.text = "Return Home: " + countdownTime.ToString();
             }
         }
         

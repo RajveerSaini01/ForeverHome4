@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 690231818251252695}
   - component: {fileID: 2804093015211790999}
   - component: {fileID: 6764246940915280954}
-  - component: {fileID: 1051279503589230818}
   m_Layer: 0
   m_Name: MushroomTeleporter
   m_TagString: Interactable
@@ -35,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &914194408219537672
 MeshFilter:
@@ -104,7 +103,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
@@ -121,9 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d2c56d0ce88fd647900d6d674673ae9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 0.7
-  interactionTransform: {fileID: 4158973171213924823}
   item: {fileID: 11400000, guid: b49bd582ac67b1343b4eba3da3aa28bb, type: 2}
+  quantity: 1
 --- !u!114 &6764246940915280954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,24 +137,3 @@ MonoBehaviour:
   sceneName: HomeWorld
   activationDistance: 2
   playerCamera: {fileID: 0}
---- !u!65 &1051279503589230818
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2262255413835396508}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.16929252, y: 0.314926, z: 0.1751744}
-  m_Center: {x: -0.01622045, y: 0.13511874, z: -0.0008177236}
