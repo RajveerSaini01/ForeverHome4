@@ -5,7 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fb6b4799-805e-4369-a6f9-bedbad7cfdfa" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.foreverHome4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.foreverHome4/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Enemy Test.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Enemy Test.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Giant Enemy Test.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Giant Enemy Test.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Imported Asset Collection/Island Terrain/Environment/Terrain/Terrains/Terrain 1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Imported Asset Collection/Island Terrain/Environment/Terrain/Terrains/Terrain 2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Imported Asset Collection/Island Terrain/Environment/Terrain/Terrains/Terrain 3.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Imported Asset Collection/Island Terrain/Environment/Terrain/Terrains/Terrain 4.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Imported Asset Collection/Island Terrain/Environment/Terrain/Terrains/Terrain 5.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PolishedWeapons/Assets/bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PolishedWeapons/Assets/bullet.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/PolishedWeapons/FirstPersonController.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PolishedWeapons/FirstPersonController.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PolishedWeapons/TestEnemyScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PolishedWeapons/TestEnemyScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Asset Dev Sandbox/PsychoWorld Package/Prefab/FirstPersonController.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Asset Dev Sandbox/PsychoWorld Package/Prefab/Level.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Asset Dev Sandbox/PsychoWorld Package/Prefab/Level.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Asset Dev Sandbox/PsychoWorld Package/Scripts/TileGeneration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Asset Dev Sandbox/PsychoWorld Package/Scripts/TileGeneration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Credits.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Credits.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Mainmenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Mainmenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyBehaviorBasic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyBehaviorBasic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InventoryUI.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InventoryUI.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerDamage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerDamage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF.shader" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMPro.cginc" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMPro.cginc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +49,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Timer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ai.navigation@1.1.1/Editor/NavigationOverlay.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ai.navigation@1.1.1/Runtime/NavMeshSurface.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />

@@ -58,6 +58,7 @@ MonoBehaviour:
   waterSpecularPrefab: {fileID: 3161590181684939375, guid: a3b85ee7155343c0a5077c56fdbddf1f, type: 3}
   wall: {fileID: 2444851169717965161, guid: c55a34e6702e24c4288d01d72911ca50, type: 3}
   waterHeight: 1
+  countDownText: {fileID: 0}
   staticPrefabs:
   - prefab: {fileID: 1120737898783828, guid: 1fdfc37f91a411548a5f4dcd69f7ecae, type: 3}
     useScaleCurve: 1
@@ -1112,6 +1113,22 @@ MonoBehaviour:
       m_RotationOrder: 4
   dynamicPrefabs:
   - prefab: {fileID: 9008524480214954276, guid: f89dd4231f7b9ae42aed62177a484828, type: 3}
+    useScaleCurve: 0
+    scale:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 0
+  - prefab: {fileID: 9008524480214954276, guid: 6f41c24840cee844f82a6584f51452f3, type: 3}
+    useScaleCurve: 0
+    scale:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 0
+  - prefab: {fileID: 9008524480214954276, guid: 10f787ae2c797a24ca8c3ce6aeacd1a5, type: 3}
     useScaleCurve: 0
     scale:
       serializedVersion: 2

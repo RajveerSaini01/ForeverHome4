@@ -27,7 +27,7 @@ public class UI : MonoBehaviour
       UpdateStamina(100);
    }
 
-   private void UpdateHealth(float currentHealth)
+   public void UpdateHealth(float currentHealth)
    {
       healthText.text = currentHealth.ToString("00");
    }

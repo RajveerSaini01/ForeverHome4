@@ -22,6 +22,7 @@ public class bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        StartCoroutine(nameof(Explode));
         GameObject other = collision.collider.gameObject;
 
         if (!other.CompareTag("Bullet"))
@@ -41,7 +42,6 @@ public class bullet : MonoBehaviour
                 
             }
         }
-        StartCoroutine(nameof(Explode));
     }
 
     IEnumerator Explode()

@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.ProBuilder;
 using UnityEngine.SceneManagement;
 
 public class PlayerDamage : MonoBehaviour
@@ -41,11 +42,15 @@ public class PlayerDamage : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
-        DamageFlash();
+        health = Mathf.Clamp(health-damage, 0f, health);
+        gameObject.GetComponentInChildren<UI>().UpdateHealth(health);
+        StartCoroutine(nameof(DamageFlash)) ;
         if (health is 0 or < 0)
         {
+            health = 0f;
+            Debug.Log("PlayerDamage death");
             SceneManager.LoadScene("Mainmenu");
+
         }
     }
 

@@ -354,14 +354,19 @@ public class EnemyBehaviorSight : MonoBehaviour
     }
     private void Die(Vector3 direction)
     {
-        state = "Dying";
+        gameObject.GetComponent<CapsuleCollider>().enabled = false;
+        Debug.Log("I am dying");
         StopAllCoroutines();
+        state = "Dying";
         ragdoll.ActivateRagdoll();
-        _scoreHUD = GameObject.FindGameObjectWithTag("Player").GetComponent<ScoreHUD>();
-        _scoreHUD.IncreaseKills();
+
         // direction.y = 1;
         ragdoll.ApplyForce(direction * dieForce);
         healthBar.gameObject.SetActive(false);
+        
         Destroy(gameObject, 5f);
+        
+        _scoreHUD = GameObject.FindGameObjectWithTag("Player").GetComponent<ScoreHUD>();
+        _scoreHUD.IncreaseKills();
     }
 }

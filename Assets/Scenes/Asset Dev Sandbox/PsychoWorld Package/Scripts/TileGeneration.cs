@@ -379,10 +379,6 @@ public class TileGeneration : MonoBehaviour
 				 {
 					placedPrefab.transform.localScale = Vector3.one * scaleFactor * (prefab.scale.Evaluate(Random.Range(0f, 1f)) + 0.5f);
 				 }
-				 else
-				 {
-					 placedPrefab.transform.localScale = Vector3.one * scaleFactor;
-				 }
 			  }
 		 }
 	 }
