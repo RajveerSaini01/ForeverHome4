@@ -369,4 +369,12 @@ public class EnemyBehaviorSight : MonoBehaviour
         _scoreHUD = GameObject.FindGameObjectWithTag("Player").GetComponent<ScoreHUD>();
         _scoreHUD.IncreaseKills();
     }
+
+    private void OnDestroy()
+    {
+        LevelGeneration.OnReady -= OnMapReady;
+        
+        // For testing purposes only
+        TestSceneManager.OnReady -= OnMapReady;
+    }
 }
